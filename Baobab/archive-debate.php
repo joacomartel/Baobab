@@ -65,7 +65,7 @@
 			<a href="<?php the_permalink(); ?>">
 				<div class="top-filter">
 						<?php $debates = new WP_Query(array('post_type' => 'debate')); if ( $debates->have_posts() ) : $i = 0	; while ( $debates->have_posts() && $i < 1 ) : $debates->the_post(); ?>
-						<h4><?php echo titulo_corto ('...', 60);?></h4>
+						<h3><?php echo titulo_corto ('...', 60);?></h3>
 						<p><?php wp_limit_post(150, '...', true) ?></p>
 						<p class="top-dato">
 						<?php the_title();?> concluye el <span><?php the_modified_date('d-m-Y') ?></span>
@@ -87,7 +87,7 @@
 					</div> <!-- thumbs-wrapper -->
 					<div class="sub-block">
 					<a href="<?php the_permalink(); ?>">
-						<h4><?php echo titulo_corto ('...', 60);?></h4>
+						<h3><?php echo titulo_corto ('...', 60);?></h3>
 							<p class="block-text"><?php wp_limit_post(90, '...', true) ?></p>
 						</a>
 

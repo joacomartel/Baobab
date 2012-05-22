@@ -39,15 +39,15 @@ theme_advanced_toolbar_align : "left",
 					<!-- Comienza el 'if' para los usuarios logueados -->
 					<?php if (is_user_logged_in()){ ?>
 
-						<h3>Titulo</h3>
+						<h4>Titulo</h4>
 						<input class="datos" name="proyecto[nombre]" type="text" value="<?php echo $proyecto->post_title ? esc_attr($proyecto->post_title) : '' ?>"/>
 					
-						<h3>Descripción</h3>						
+						<h4>Descripción</h4>						
 						<textarea name="proyecto[descripcion]" class="text-input descripcion" style="width:100%"><?php echo esc_textarea( $proyecto->post_content ); ?></textarea>
 					
 					<!-- TEXTO ENRIQUECIDO <?php the_editor($content_to_load); ?>-->
 					
-						<h3>Etapas</h3>
+						<h4>Etapas</h4>
 						<?php
 							$etapas = get_post_meta($_GET['id'], 'Etapas', true);
 							if ( $etapas ) {
@@ -59,16 +59,16 @@ theme_advanced_toolbar_align : "left",
 						<input class="datos" type="text" name="proyecto[etapas][]" />
 						<p><a href="#" id="agregar-etapa-proyecto">Agregar otra etapa</a></p>
 						
-						<h3>Estado</h3>
+						<h4>Estado</h4>
 						<select name="proyecto[estado]">
   							<option>En Curso</option>
   							<option>Finalizado</option>
 						</select>
 						
-						<h3>Imagen</h3>
+						<h4>Imagen</h4>
 						<input name="proyecto_imagen" type="file" />
 						
-						<h3>Categorías</h3>
+						<h4>Categorías</h4>
 						<?php estorninos_category_checkbox('proyecto', $proyecto); ?>
 <!-- reCaptcha 				
  <script type="text/javascript"

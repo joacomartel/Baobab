@@ -7,10 +7,6 @@
 		<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.gpCarousel.js"></script>
 		<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/prueba.js"></script>
 
-
-<!-- Comienza la fiesta de GoogleFonts -->
-	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans">
-	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Signika+Negative">
 <content>
 	<div id="pagewrap">
 		<h2>Últimas Publicaciones</h2>
@@ -28,7 +24,7 @@
 						<?php the_post_thumbnail('proyecto-thumbnail'); ?>
 					</div> <!-- thumbs-wrapper -->
 					<div class="sub-block">
-						<h4><?php echo titulo_corto ('...', 60);?></a></h4>
+						<h3><?php echo titulo_corto ('...', 60);?></a></h3>
 
 						<!--<p>Publicado el <?php the_time ('j \d\e F, Y')?></p>-->
 						<p>Publicado por <?php the_author_posts_link(); ?></p>

@@ -125,7 +125,7 @@ return Array(
  */
 'twitter' => 'Twitter',
 'facebook' => 'Facebook',
-'carrera' => 'Carrera'
+'carrera' => 'Carrera',
 );
 }
  
@@ -134,6 +134,9 @@ add_action( 'edit_user_profile', 'extra_user_profile_fields' );
  
 function extra_user_profile_fields( $user ) { ?>
 <h3><?php _e("Otros", "blank"); ?></h3>
+
+<p style="color:#CC0000">Para <b>Twitter</b> debes colocar sólo tu nombre de usuario, por ejemplo: <b><i>tu-usuario</i></b>
+<br>Para <b>Facebook</b> debes colocar la dirección de tu perfil, por ejemplo: <b><i>www.facebook.com/tu-usuario</i></b></p>
  
 <table class="form-table">
 <?php foreach(get_extra_profile_list() as $key => $value) {?>
@@ -141,7 +144,8 @@ function extra_user_profile_fields( $user ) { ?>
 <th><label for="<?php echo $key; ?>"><?php _e($value); ?></label></th>
 <td>
 <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo esc_attr( get_the_author_meta( $key, $user->ID ) ); ?>" class="regular-text" /><br />
-<span class="description"><?php _e("Ingresa tu $value."); ?></span>
+<!--  <span class="description"><?php _e("Ingresa tu $value."); ?></span> -->
+
 </td>
 </tr>
 <?php
@@ -161,7 +165,10 @@ foreach(get_extra_profile_list() as $key => $value) {
 update_usermeta( $user_id, $key, $_POST[$key] );
 }
 }
- 
+
+
+
+
 
 /* Eliminar barra de administración */
 function quitar_barra_administracion()	{
@@ -938,9 +945,12 @@ function listar_noticias(){
 	if ( $noticias->have_posts() ) : $i = 0;
 		echo '<ul><div class="circle"></div>';
 			while( $noticias->have_posts() && $i < 4 ) : $noticias->the_post();
-			echo '<li><h5><a href="'. get_permalink() .'">'. titulo_corto ('...', 50) .'</a></h5>por ';
-			echo '<a href="'. the_author_posts_link() .''. the_time (', j \d\e F Y') .' </a>';
-			echo '<a href="'. get_the_date() .'</a></li>';
+			echo '<li>';
+			echo ' en <a href="'. the_author_posts_link() .'</a>';
+			echo '<a href="'. the_category(', ') .'</a>';
+			echo '<a href="'. get_the_date() .'</a>';
+			echo '<h5><a href="'. get_permalink() .'">'. titulo_corto ('...', 50) .'</a></h5>';
+			echo '</li>';
 			$i++;
 			endwhile;
 		echo '</ul>';
@@ -965,9 +975,12 @@ function listar_ideas(){
 	if ( $ideas->have_posts() ) : $i = 0;
 		echo '<ul><div class="circle"></div>';
 			while( $ideas->have_posts() && $i < 4 ) : $ideas->the_post();
-			echo '<li><h5><a href="'. get_permalink() .'">'. titulo_corto ('...', 50) .'</a></h5>por ';
-			echo '<a href="'. the_author_posts_link() .''. the_time (', j \d\e F Y') .' </a>';
-			echo '<a href="'. get_the_date() .'</a></li>';
+			echo '<li>';
+			echo ' en <a href="'. the_author_posts_link() .'</a>';
+			echo '<a href="'. the_category(', ') .'</a>';
+			echo '<a href="'. get_the_date() .'</a>';
+			echo '<h5><a href="'. get_permalink() .'">'. titulo_corto ('...', 50) .'</a></h5>';
+			echo '</li>';
 			$i++;
 			endwhile;
 		echo '</ul>';
@@ -992,9 +1005,12 @@ function listar_eventos(){
 	if ( $eventos->have_posts() ) : $i = 0;
 		echo '<ul><div class="circle"></div>';
 			while( $eventos->have_posts() && $i < 4 ) : $eventos->the_post();
-			echo '<li><h5><a href="'. get_permalink() .'">'. titulo_corto ('...', 50) .'</a></h5>por ';
-			echo '<a href="'. the_author_posts_link() .''. the_time (', j \d\e F Y') .' </a>';
-			echo '<a href="'. get_the_date() .'</a></li>';
+			echo '<li>';
+			echo ' en <a href="'. the_author_posts_link() .'</a>';
+			echo '<a href="'. the_category(', ') .'</a>';
+			echo '<a href="'. get_the_date() .'</a>';
+			echo '<h5><a href="'. get_permalink() .'">'. titulo_corto ('...', 50) .'</a></h5>';
+			echo '</li>';			
 			$i++;
 			endwhile;
 		echo '</ul>';
@@ -1016,11 +1032,14 @@ function listar_debates(){
 		'post_type' => 'debate',
 	));
 	if ( $debates->have_posts() ) : $i = 0;
-		echo '<ul><div class="circle"></div>';
+		echo '<ul>';
 			while( $debates->have_posts() && $i < 4 ) : $debates->the_post();
-			echo '<li><h5><a href="'. get_permalink() .'">'. titulo_corto ('...', 50) .'</a></h5>por ';
-			echo '<a href="'. the_author_posts_link() .''. the_time (', j \d\e F Y') .' </a>';
-			echo '<a href="'. get_the_date() .'</a></li>';
+			echo '<li>';
+			echo ' en <a href="'. the_author_posts_link() .'</a>';
+			echo '<a href="'. the_category(', ') .'</a>';
+			echo '<a href="'. get_the_date() .'</a>';
+			echo '<h5><a href="'. get_permalink() .'">'. titulo_corto ('...', 50) .'</a></h5>';
+			echo '</li>';
 			$i++;
 			endwhile;
 		echo '</ul>';
@@ -1045,9 +1064,12 @@ function listar_proyectos(){
 	if ( $proyectos->have_posts() ) : $i = 0;
 		echo '<ul><div class="circle"></div>';
 			while( $proyectos->have_posts() && $i < 4 ) : $proyectos->the_post();
-			echo '<li><h5><a href="'. get_permalink() .'">'. titulo_corto ('...', 50) .'</a></h5>por ';
-			echo '<a href="'. the_author_posts_link() .''. the_time (', j \d\e F Y') .' </a>';
-			echo '<a href="'. get_the_date() .'</a></li>';
+			echo '<li>';
+			echo ' en <a href="'. the_author_posts_link() .'</a>';
+			echo '<a href="'. the_category(', ') .'</a>';
+			echo '<a href="'. get_the_date() .'</a>';
+			echo '<h5><a href="'. get_permalink() .'">'. titulo_corto ('...', 50) .'</a></h5>';
+			echo '</li>';	
 			$i++;
 			endwhile;
 		echo '</ul>';
@@ -1061,7 +1083,7 @@ function save_proyectos_metabox( $postid ){
 	update_post_meta( $postid, '_lugar', $_POST['proyecto']['lugar'] );
 }
 
-/*mercado*/
+/*Mercado*/
 function listar_mercado(){
 	global $post;
 	$the_post = $post;
@@ -1071,9 +1093,12 @@ function listar_mercado(){
 	if ( $mercado->have_posts() ) : $i = 0;
 		echo '<ul><div class="circle"></div>';
 			while( $mercado->have_posts() && $i < 4 ) : $mercado->the_post();
-			echo '<li><h5><a href="'. get_permalink() .'">'. titulo_corto ('...', 50) .'</a></h5>por ';
-			echo '<a href="'. the_author_posts_link() .''. the_time (', j \d\e F Y') .' </a>';
-			echo '<a href="'. get_the_date() .'</a></li>';
+			echo '<li>';
+			echo ' en <a href="'. the_author_posts_link() .'</a>';
+			echo '<a href="'. the_category(', ') .'</a>';
+			echo '<a href="'. get_the_date() .'</a>';
+			echo '<h5><a href="'. get_permalink() .'">'. titulo_corto ('...', 50) .'</a></h5>';
+			echo '</li>';
 			$i++;
 			endwhile;
 		echo '</ul>';
@@ -1127,7 +1152,20 @@ function estorninos_search_query( $request ){
 }
 add_filter('request', 'estorninos_search_query');
 
+/* Permito Widgets */
 if ( function_exists('register_sidebars') )
 register_sidebars(1);
 
 
+
+/**
+ * add a default-gravatar to options
+ */
+if ( !function_exists('fb_addgravatar') ) {
+	function fb_addgravatar( $avatar_defaults ) {
+		$myavatar = get_bloginfo('template_directory') . '/images/avatar.png';
+		$avatar_defaults[$myavatar] = 'Estornino';
+		return $avatar_defaults;
+	}
+	add_filter( 'avatar_defaults', 'fb_addgravatar' );
+}

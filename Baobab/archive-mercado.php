@@ -39,7 +39,7 @@
 			<a href="<?php the_permalink(); ?>">
 				<div class="top-filter">
 						<?php $mercados = new WP_Query(array('post_type' => 'mercado')); if ( $mercados->have_posts() ) : $i = 0	; while ( $mercados->have_posts() && $i < 1 ) : $mercados->the_post(); ?>
-						<h4><?php echo titulo_corto ('...', 60);?></h4>
+						<h3><?php echo titulo_corto ('...', 60);?></h3>
 						<p><?php wp_limit_post(150, '...', true) ?></p>
 						<p class="top-dato">
 						<?php the_title(); ?>. Su condición es <span><?php echo get_post_meta($post->ID, 'Condicion', true); ?></span> y su valor es <span><?php echo get_post_meta($post->ID, 'Valor', true); ?></span>
@@ -59,7 +59,7 @@
 					</div> <!-- thumbs-wrapper -->
 					<div class="sub-block">
 						<a href="<?php the_permalink(); ?>">
-						<h4><?php echo titulo_corto ('...', 60);?></h4>
+						<h3><?php echo titulo_corto ('...', 60);?></h3>
 						<p class="block-text"><?php wp_limit_post(90, '...', true) ?></p>
 						</a>
 						<p><?php the_time ('j \d\e F, Y')?></p>

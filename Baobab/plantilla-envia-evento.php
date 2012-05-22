@@ -123,11 +123,11 @@ function deleteOverlays() {
 				<!-- Comienza el 'if' para los usuarios logueados -->
 					<?php if (is_user_logged_in()){ ?>
 
-						<h3>Titulo</h3>
+						<h4>Titulo</h4>
 						<input class="datos" name="evento[nombre]" type="text" value="<?php echo $evento->post_title ? esc_attr($evento->post_title) : '' ?>"/>
-						<h3>Descripción</h3>
+						<h4>Descripción</h4>
 						<textarea name="evento[descripcion]" class="text-input descripcion" style="width:100%"><?php echo esc_textarea( $evento->post_content ); ?></textarea>
-						<h3>Lugar</h3>
+						<h4>Lugar</h4>
 						<!--<input name="evento[lugar]" class="datos" />-->
 						<div id="p_c"></div>
 						<span id="otraPos" class="button" style="display:none; float:left; text-decoration:none;"> <a href="javascript:showMap()" >Agregar Otra</a></span>
@@ -141,7 +141,7 @@ function deleteOverlays() {
 						</div>
 						<script>initialize();</script>
 
-						<h3>Fecha</h3>
+						<h4>Fecha</h4>
 						<select name="evento[fecha][dia]">
 							<?php for ( $i = 1; $i < 32; $i++ ) : ?>
 							<option><?php echo str_pad($i, 2, 0, STR_PAD_LEFT); ?></option>
@@ -157,9 +157,9 @@ function deleteOverlays() {
 							<option><?php echo str_pad($i, 2, 0, STR_PAD_LEFT); ?></option>
 							<?php endfor; ?>
 						</select>
-						<h3>Imagen</h3>
+						<h4>Imagen</h4>
 						<input name="evento_imagen" type="file" />
-						<h3>Categorías</h3>
+						<h4>Categorías</h4>
 						<?php estorninos_category_checkbox('evento', $evento); ?>
 						
 						<input class="button color_la" type="submit" value="Enviar" />
@@ -186,12 +186,7 @@ if ( is_user_logged_in() ) {
 	<?php endwhile; endif; ?>
 
 </article> <!-- publicacion -->
-		<aside>
-			<h2>Estamos realizando mejoras</h2>
-			<p class="important"> Aún no habilitamos el sistema de georeferencia. Por mientras, si deseas publicar un evento, debes llenar el campo "LUGAR". Así todos sabrán dónde asistir.</p>
-			<br>
-		</aside><!-- archive-list -->
-		<br>
+
 
 </div> <!-- pagewrap -->
 <?php get_footer(); ?>

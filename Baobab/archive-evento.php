@@ -41,14 +41,13 @@
 			<a href="<?php the_permalink(); ?>">
 				<div class="top-filter">
 						<?php $eventos = new WP_Query(array('post_type' => 'evento')); if ( $eventos->have_posts() ) : $i = 0	; while ( $eventos->have_posts() && $i < 1 ) : $eventos->the_post(); ?>
-						<h4><?php echo titulo_corto ('...', 60);?></h4>
+						<h3><?php echo titulo_corto ('...', 60);?></h3>
 						<p>
 						<?php wp_limit_post(150, '...', true) ?>
 						</p>
 						<p class="top-dato">
 						<?php the_title();?> está agendado para el <span><?php the_modified_date('l j \d\e F Y') ?></span>
 						</p>
-						<!-- <div id="chart_div" style="width: auto; height: auto; margin-top:-40px"></div> -->
 					<?php $i++; endwhile; endif; ?>
 				</div><!-- top-filter -->
 				</a>
@@ -63,15 +62,13 @@
 					</div> <!-- thumbs-wrapper -->
 					<div class="sub-block">
 					<a href="<?php the_permalink(); ?>">
-						<h4><?php echo titulo_corto ('...', 90);?></h4>
+						<h3><?php echo titulo_corto ('...', 90);?></h3>
 							<p class="block-text"><?php wp_limit_post(60, '...', true) ?></p>
 						</a>
 						<p><?php the_time ('j \d\e F, Y')?></p>
 						<p><?php the_category(', ') ?></p>
 					</div><!-- sub-block -->
-					
-					<div class="post-box type-evento"></div>
-					
+										
 					<figcaption id="clickeable" onclick="location.href='<?php the_permalink(); ?>';" style="cursor:pointer;">
 						<a href="<?php the_permalink(); ?>">
 							<p>"<?php 

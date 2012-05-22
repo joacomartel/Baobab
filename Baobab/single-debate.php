@@ -38,17 +38,17 @@
 			<div id="avatar"><a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>"><?php echo get_avatar( $post->post_author, 50 );?></a></div>
 			<div class="title">
 				<p>Publicado por <?php the_author_posts_link(); ?>, el <?php the_time ('j \d\e F Y')?></p>
-				<h4><?php the_title(); ?></h4>
+				<h3><?php the_title(); ?></h3>
 				<p><?php the_category(', ') ?></p>
 			</div>
 			
 			<ul class="info">
 				<li>
 					<!--<img src="<?php bloginfo('stylesheet_directory'); ?>/images/single_pregunta.png"/>
-					<h3>Pregunta</h3><br>
+					<h4>Pregunta</h4><br>
 					<p><?php echo get_post_meta($post->ID, 'Pregunta', true); ?></p>  -->
 					<img src="<?php bloginfo('stylesheet_directory'); ?>/images/single_fecha.png"/>
-					<h3>Cierre del Debate</h3><br>
+					<h4>Cierre del Debate</h4><br>
 					<p><?php the_modified_date('d-m-Y') ?></p>
 				</li>
 				<li>
@@ -62,7 +62,7 @@
 					<?php
                         $opciones = $wpdb->get_results("SELECT * FROM wp_votes WHERE post_id = $post->ID");                        
 						if ( $opciones ) {
-							echo '<h3>Opciones:</h3>';
+							echo '<h4>Opciones:</h4>';
 							echo '<ol>';
 							foreach ( $opciones as $opcion ) {
 								echo '<li style="background: none;"><input type="radio" name="vote_id" value="'.$opcion->id.'" onclick="$(\'#submit_vote\').removeAttr(\'disabled\');"> '. $opcion->vote_text .'</input></li>';
@@ -72,7 +72,7 @@
 					?>
 					   <!--  <div id="chart_div" style="width: auto; height: auto;"></div> -->  
                     <input type="hidden" value="<?php echo $post->ID; ?>" name="post_id" />
-                    <input id="submit_vote" type="submit" value="votar" class="button color_blue" disabled="disabled" />
+                    <input id="submit_vote" type="submit" value="votar" class="button color_green" disabled="disabled" />
                     <?php wp_nonce_field('realizar_voto', '_debate_realizar_voto'); ?>
               	</li>
 			</ul>
@@ -84,7 +84,7 @@
 					<?php
                         $opciones = $wpdb->get_results("SELECT * FROM wp_votes WHERE post_id = $post->ID");                        
 						if ( $opciones ) {
-							echo '<h3>Opciones:</h3>';
+							echo '<h4>Opciones:</h4>';
 							echo '<ol>';
 							foreach ( $opciones as $opcion ) {
 		                        $votos = get_votes($opcion->id);

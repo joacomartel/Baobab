@@ -38,16 +38,16 @@ theme_advanced_toolbar_align : "left",
 					<!-- Comienza el 'if' para los usuarios logueados -->
 					<?php if (is_user_logged_in()){ ?>
 
-						<h3>Titulo</h3>
+						<h4>Titulo</h4>
 						<input class="datos" name="noticia[nombre]" type="text" value="<?php echo $noticia->post_title ? esc_attr($noticia->post_title) : '' ?>"/>
 
-						<h3>Descripción</h3>
+						<h4>Descripción</h4>
 						<textarea name="noticia[descripcion]" class="text-input descripcion" style="width:100%"><?php echo esc_textarea( $noticia->post_content ); ?></textarea>
 
-						<h3>Imagen</h3>
+						<h4>Imagen</h4>
 						<input name="noticia_imagen" type="file" />
 
-						<h3>Categorías</h3>
+						<h4>Categorías</h4>
 						<?php estorninos_category_checkbox('noticia', $noticia); ?>
 
 						<input class="button color_la" type="submit" value="Enviar" />

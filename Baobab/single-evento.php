@@ -10,20 +10,20 @@
 			<div id="avatar"><a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>"><?php echo get_avatar( $post->post_author, 50 );?></a></div>
 			<div class="title">
 				<p>Publicado por <?php the_author_posts_link(); ?>, el <?php the_time ('j \d\e F Y')?></p>
-				<h4><?php the_title(); ?></h4>
+				<h3><?php the_title(); ?></h3>
 				<p><?php the_category(', ') ?></p>
 			</div>
 			<ul class="info">
 				<li>
 					<img src="<?php bloginfo('stylesheet_directory'); ?>/images/single_lugar.png"/>
-					<h3>Lugar</h3><br>
+					<h4>Lugar</h4><br>
 					<p><?php echo get_post_meta($post->ID, 'Lugar', true); ?></p>
 					<img src="<?php bloginfo('stylesheet_directory'); ?>/images/single_fecha.png"/>
-					<h3>Fecha</h3><br>
+					<h4>Fecha</h4><br>
 					<p><?php the_modified_date('d-m-Y') ?></p>
 				</li>
 				<li>
-					<h3>Asistentes</h3><br>
+					<h4>Asistentes</h4><br>
 					<div class="personas"><!-- personas -->
                         <?php $personas = get_id_users_in_proyect($post->ID);
                             foreach($personas as $persona){
@@ -44,12 +44,12 @@
                         <form id="formulario-proyecto-unirse" method="post" action="<?php bloginfo('url'); ?>/index.php">
                            <?php wp_nonce_field('participar_proyecto', '_proyecto_unirse'); ?>
                            <input type="hidden" name="post_id" value="<?php echo $post->ID; ?>" />
-                           <input type="submit" class="boton color_green" value="Asistiré" />
+                           <input type="submit" class="button color_green" value="Asistiré" />
                         </form>
                         <!-- fin interfaz -->
                     <?php } else { ?>
                         <!-- Interfaz del que ya pertenece a este proyecto -->
-                        <!-- <input type="button" class="boton color_green" value="Algo bkn" /> -->
+                        <!-- <input type="button" class="button color_green" value="Algo bkn" /> -->
                         <!-- ¡Ya haz confirmado tu asistencia! -->
                         <!-- fin interfaz -->
                     <?php } ?>

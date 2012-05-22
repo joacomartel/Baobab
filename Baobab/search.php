@@ -25,29 +25,72 @@ global $wp_query;
 			<a href="<?php the_permalink(); ?>">
 
 				<figure class="item block">
+
 					<div class="thumbs-wrapper">
+						<a href="<?php the_permalink(); ?>">
+
+						
 						<?php the_post_thumbnail('proyecto-thumbnail'); ?>
 					</div> <!-- thumbs-wrapper -->
 					<div class="sub-block">
-						<h4><?php echo titulo_corto ('...', 60);?></h4>
-			</a>
+						<h3><?php echo titulo_corto ('...', 60);?></a></h3>
 
-						<a href="<?php the_permalink(); ?>">
-							<p class="block-text"><?php wp_limit_post(90, '...', true) ?></p>
-						</a>
-						
-						<p><?php the_time ('j \d\e F, Y')?></p>
+						<!--<p>Publicado el <?php the_time ('j \d\e F, Y')?></p>-->
+						<p>Publicado por <?php the_author_posts_link(); ?></p>
 						<p><?php the_category(', ') ?></p>
+
+						<!-- me muestra el tipo de post
+						<div id="info"><?php echo ''.get_post_type( $post->ID ); ?></div> -->
+
+
+						<!-- para cada post un color -->
+						<?php $post_type = get_post_type( $post->ID ); if ($post_type == 'evento')
+						echo '<div class="post-box type-evento"></div>'; ?>
+						<?php $post_type = get_post_type( $post->ID ); if ($post_type == 'proyecto')
+						echo '<div class="post-box type-proyecto"></div>'; ?>
+						<?php $post_type = get_post_type( $post->ID ); if ($post_type == 'debate')
+						echo '<div class="post-box type-debate"></div>'; ?>
+						<?php $post_type = get_post_type( $post->ID ); if ($post_type == 'mercado')
+						echo '<div class="post-box type-mercado"></div>'; ?>
+
+						<?php $post_type = get_post_type( $post->ID ); if ($post_type == 'idea')
+						echo '<div class="post-box type-idea"></div>'; ?>
+						<?php $post_type = get_post_type( $post->ID ); if ($post_type == 'noticia')
+						echo '<div class="post-box type-noticia"></div>'; ?>
+
+
 					</div><!-- sub-block -->
 					
-					<figcaption>
-						<div id="avatar"><a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>"><?php echo get_avatar( $post->post_author, 50 );?></a></div>
-						Publicado por, <?php the_author_posts_link(); ?>
+					
+					<figcaption id="clickeable" onclick="location.href='<?php the_permalink(); ?>';" style="cursor:pointer;">
+					<a href="<?php the_permalink(); ?>">
+					<p>"
+					
+					<?php 
+					//This must be in one loop
+					if(has_post_thumbnail()) {
+						echo ''.wp_limit_post(100, '...', true);
+					} else {
+						echo ''.wp_limit_post(30, '...', true);;
+					}
+					?>"
 
-						<a href="<?php the_permalink(); ?>">
-							<p><?php wp_limit_post(100, '...', true) ?></p>
-							<div class="comentarios"><?php comments_popup_link( __( '0' ), __( '1' ), __( '%' ) ) ?></div>
-						</a>
+						<span>
+						<?php $post_type = get_post_type( $post->ID ); if ($post_type == 'evento')
+						echo ''.the_modified_date('j \d\e F'); ?>
+						<?php $post_type = get_post_type( $post->ID ); if ($post_type == 'proyecto')
+						echo 'Estado: '.get_post_meta($post->ID, 'Estado', true); ?>
+						<?php $post_type = get_post_type( $post->ID ); if ($post_type == 'debate')
+						echo ''.the_modified_date('j \d\e F'); ?>
+						<?php $post_type = get_post_type( $post->ID ); if ($post_type == 'mercado')
+						echo ''.get_post_meta($post->ID, 'Condicion', true); ?>
+						<?php $post_type = get_post_type( $post->ID ); if ($post_type == 'noticia')
+						echo ''.$my_var = get_comments_number( $post_id ).' Comentarios';?>
+						<?php $post_type = get_post_type( $post->ID ); if ($post_type == 'idea')
+						echo ''.$my_var = get_comments_number( $post_id ).' Comentarios';?>
+						</span>
+					</p>
+					</a>
 					</figcaption>
 
 				</figure> <!-- item block -->

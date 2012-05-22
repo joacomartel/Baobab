@@ -40,14 +40,14 @@ theme_advanced_toolbar_align : "left",
 				<!-- Comienza el 'if' para los usuarios logueados -->
 					<?php if (is_user_logged_in()){ ?>
 
-						<h3>Pregunta</h3>
+						<h4>Pregunta</h4>
 						<input class="datos" name="debate[nombre]" type="text" value="<?php echo $debate->post_title ? esc_attr($debate->post_title) : '' ?>"/>
-						<h3>Descripción</h3>
+						<h4>Descripción</h4>
 						<textarea name="debate[descripcion]" class="text-input descripcion" style="width:100%"><?php echo esc_textarea( $debate->post_content ); ?></textarea>
 						
-						<!-- <h3>Pregunta</h3>
+						<!-- <h4>Pregunta</h4>
 						<input type="text" name="debate[pregunta]" class="datos" <?php echo $pregunta ? ' value="'. esc_attr($pregunta) .'"' : '' ?> /> -->
-						<h3>Opciones</h3>
+						<h4>Opciones</h4>
 						<?php
 							$opciones = get_post_meta($_GET['id'], 'Opciones', true);
 							if ( $opciones ) {
@@ -59,7 +59,7 @@ theme_advanced_toolbar_align : "left",
 						<input type="text" class="datos" name="debate[opciones][]" />
 						<p><a href="#" id="agregar-opcion-debate">Agregar otra opción</a></p>
 						
-						<h3>Cierre del Debate</h3>
+						<h4>Cierre del Debate</h4>
 						<select name="debate[fecha][dia]">
 							<?php for ( $i = 1; $i < 32; $i++ ) : ?>
 							<option <?php date("j") == $i ? printf("selected='selected'") : printf("") ?>><?php echo str_pad($i, 2, 0, STR_PAD_LEFT); ?></option>
@@ -76,9 +76,9 @@ theme_advanced_toolbar_align : "left",
 							<?php endfor; ?>
 						</select>
 						
-						<h3>Imagen</h3>
+						<h4>Imagen</h4>
 						<input name="debate_imagen" type="file" />
-						<h3>Categorías</h3>
+						<h4>Categorías</h4>
 						<?php estorninos_category_checkbox('debate', $debate); ?>
 						
 						

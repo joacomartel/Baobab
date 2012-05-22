@@ -39,9 +39,19 @@
 			<!-- Si el Usuario ESTÁ logueado, sale su Nombre -->
 			<menu>
 			<?php if (is_user_logged_in () ) global $current_user; get_currentuserinfo(); if (is_user_logged_in () ) echo get_avatar( $current_user->id, 28); ?>
-			<li>
-			<?php echo '<a href="'. get_author_posts_url($current_user->id) .'">'. $current_user->display_name .'</a>' . "\n";?>
-			<ul class="sub-menu"><li><?php if (is_user_logged_in () ){echo '<a href="/wp-admin/profile.php">Editar</a>';}?></li><li><?php { echo '<a href="/wp-login.php?action=logout">Salir</a>'; }?></li></li></ul> 
+			<?php if (is_user_logged_in () ) {
+				echo'<li class="caret">';
+				echo '<a href="#">'. $current_user->display_name .'&nbsp;</a>' . "\n";
+				echo'<ul class="sub-menu">';
+				echo '<a href="'. get_author_posts_url($current_user->id) .'">'. Publicaciones .'</a>';
+				echo'<li><a href="/wp-admin/profile.php">Editar</a></li>';
+				echo'<li class="divider">';
+				echo '<a href="'.wp_logout_url( home_url() ).'">Salir</a>';
+				echo'</li>';
+				echo'</ul>';
+				echo'</li>';
+				}
+			?>
 			<!-- Y está la opción de Editar -->
 			</menu>
 			<!-- Si el Usuario está NO ESTÁ logueado, debe Ingresar -->

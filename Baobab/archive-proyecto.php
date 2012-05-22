@@ -42,7 +42,7 @@
 					<div class="top-filter">
 						<?php $proyectos = new WP_Query(array('post_type' => 'proyecto')); if ( $proyectos->have_posts() ) : $i = 0	; while ( $proyectos->have_posts() && $i < 1 ) : $proyectos->the_post(); ?>
 					
-						<h4><?php echo titulo_corto ('...', 60);?></h4>
+						<h3><?php echo titulo_corto ('...', 60);?></h3>
 						<p><?php wp_limit_post(150, '...', true) ?></p>
 						<p class="top-dato">
 						El proyecto <?php the_title();?> se encuentra <span><?php echo get_post_meta($post->ID, 'Estado', true); ?></span>
@@ -71,7 +71,7 @@
 						<?php the_post_thumbnail('proyecto-thumbnail'); ?>
 					</div> <!-- thumbs-wrapper -->
 					<div class="sub-block">
-						<h4><?php echo titulo_corto ('...', 60);?></h4>
+						<h3><?php echo titulo_corto ('...', 60);?></h3>
 			</a>
 						<a href="<?php the_permalink(); ?>">
 							<p class="block-text"><?php wp_limit_post(90, '...', true) ?></p>

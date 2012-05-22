@@ -10,7 +10,7 @@
 			<div id="avatar"><a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>"><?php echo get_avatar( $post->post_author, 50 );?></a></div>
 			<div class="title">
 				<p>Publicado por <?php the_author_posts_link(); ?>, el <?php the_time ('j \d\e F Y')?></p>
-				<h4><?php the_title(); ?></h4>
+				<h3><?php the_title(); ?></h3>
 				<p><?php the_category(', ') ?></p>
 			</div>
 			<?php the_post_thumbnail('noticia-thumbnail'); ?>

@@ -43,7 +43,7 @@
 					<div class="top-filter">
 						<?php $noticias = new WP_Query(array('post_type' => 'noticia')); if ( $noticias->have_posts() ) : $i = 0	; while ( $noticias->have_posts() && $i < 1 ) : $noticias->the_post(); ?>
 					
-						<h4><?php echo titulo_corto ('...', 60);?></h4>
+						<h3><?php echo titulo_corto ('...', 60);?></h3>
 						<p>
 							<?php wp_limit_post(200, '...', true) ?>
 						</p>
@@ -62,7 +62,7 @@
 					</div> <!-- thumbs-wrapper -->
 					<div class="sub-block">
 					<a href="<?php the_permalink(); ?>">
-						<h4><?php echo titulo_corto ('...', 60);?></h4>
+						<h3><?php echo titulo_corto ('...', 60);?></h3>
 							<p class="block-text"><?php wp_limit_post(90, '...', true) ?></p>
 						</a>
 						<p><?php the_time ('j \d\e F, Y')?></p>

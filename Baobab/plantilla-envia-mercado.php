@@ -39,26 +39,26 @@ theme_advanced_toolbar_align : "left",
 					<!-- Comienza el 'if' para los usuarios logueados -->
 					<?php if (is_user_logged_in()){ ?>
 					
-						<h3>Titulo</h3>
+						<h4>Titulo</h4>
 						<input class="datos" name="mercado[nombre]" type="text" value="<?php echo $mercado->post_title ? esc_attr($mercado->post_title) : '' ?>"/>
 
-						<h3>Descripción</h3>
+						<h4>Descripción</h4>
 						<textarea name="mercado[descripcion]" class="text-input descripcion" style="width:100%"><?php echo esc_textarea( $mercado->post_content ); ?></textarea>
 
-						<h3>Valor</h3>
+						<h4>Valor</h4>
 						<input name="mercado[valor]" class="datos" />
 
-						<h3>Condición</h3>
+						<h4>Condición</h4>
 						<select name="mercado[condicion]">
   							<option>Vendo</option>
   							<option>Compro</option>
   							<option>Transacción Finalizada</option>
 						</select>
 
-						<h3>Imagen</h3>
+						<h4>Imagen</h4>
 						<input name="mercado_imagen" type="file" />
 
-						<h3>Categorías</h3>
+						<h4>Categorías</h4>
 						<?php estorninos_category_checkbox('mercado', $mercado); ?>
 
 						<input class="button color_la" type="submit" value="Enviar" />
