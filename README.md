@@ -1,7 +1,7 @@
 Baobab
 ======
 
-Baobab es un Framework de Wordpress. En Žl podr‡s generar Proyectos, Debates, invitar gente a Eventos, publicar Noticias o alguna Idea y hasta ofrecer o comprar productos.
+Baobab es un Framework de Wordpress. En el podras generar Proyectos, Debates, invitar gente a Eventos, publicar Noticias o alguna Idea y hasta ofrecer o comprar productos.
 
 --------------
 
