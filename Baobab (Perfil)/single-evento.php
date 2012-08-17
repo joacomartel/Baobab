@@ -65,19 +65,19 @@
 				<?php the_post_thumbnail('evento-thumbnail'); ?>
 				<p><?php the_content(); ?></p>
 			</div>
-			<a class="share-tw" title="<?php _e("Comparte en Twitter", "Baobab"); ?>" target="_blank" href="http://twitter.com/intent/tweet?text=<?php the_title(); ?> <?php the_permalink();?>&t=<?php the_title(); ?>"</a> 
+			<a class="share-tw" title="<?php _e("Comparte en Twitter", "Baobab"); ?>" target="_blank" href="http://twitter.com/intent/tweet?text=<?php the_title(); ?> <?php the_permalink();?>&t=<?php the_title(); ?>"</a>
 			<a class="share-fb" title="<?php _e("Comparte en Facebook", "Baobab"); ?>" target="_blank" href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&t=<?php the_title(); ?>"></a>
-			
-			
+
+
 			<p class="edit">
 			<?php if ($post->post_author == $current_user->ID)
 			{ ?><a href="<?php echo esc_url( get_permalink( get_page_by_title( __("Enviar Evento", "Baobab")))); ?>?&id=<?php the_ID(); ?>"><?php _e("Editar Publicación", "Baobab"); ?></a><?php } ?>
 			</p>
-			
-			
+
+
 			<?php endwhile; endif; ?>
 			</div> <!-- wrap -->
-			
+
 		</article> <!-- publicacion -->
 
 		<aside id="archive-list">

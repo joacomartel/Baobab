@@ -455,7 +455,9 @@ function get_id_users_in_proyect($post_id){
     if ( !is_numeric($post_id) ){
     	return null;
     }
-    return get_post_meta( $post_id, '_participant', false );
+    global $wpdb;
+    $query = $wpdb->prepare("SELECT post_id, meta_value as user_id FROM $wpdb->postmeta WHERE post_id = %d AND meta_key = %s", $post_id, '_participant');
+    return $wpdb->get_results( $query );
 }
 
 /* Idea */
@@ -741,7 +743,7 @@ function get_votes( $vote_id ){
     // cast as int to be sure we're safe
     $vote_id = (int)$vote_id;
     global $wpdb;
-    $query = "SELECT COUNT(meta_id) FROM $wpdb->postmeta WHERE meta_key = '_vote_$vote_id";
+    $query = "SELECT COUNT(meta_id) FROM $wpdb->postmeta WHERE meta_key = '_vote_$vote_id'";
     return (int)$wpdb->get_var( $query );
 }
 

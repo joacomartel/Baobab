@@ -11,13 +11,13 @@
         data.addColumn('string', 'Task');
         data.addColumn('number', 'Hours per Day');
         data.addRows([
-	   <?php $opciones = get_votes_from_post_id($post->ID); 
-	          if ( $opciones ) {		
+	   <?php $opciones = get_votes_from_post_id($post->ID);
+	          if ( $opciones ) {
 			foreach ( $opciones as $opcion ) { ?>
 		          [' <?php echo $opcion->vote_text; ?>', <?php echo get_votes($opcion->id); ?>],
 	   <?php } } ?>
         ]);
-            
+
 
         var options = {
           title: '<?php// the_title(); ?>'
@@ -41,7 +41,7 @@
 				<h3><?php the_title(); ?></h3>
 				<p><?php the_category(', ') ?></p>
 			</div>
-			
+
 			<ul class="info">
 				<li>
 					<!--<img src="<?php bloginfo('stylesheet_directory'); ?>/images/single_pregunta.png"/>
@@ -52,15 +52,15 @@
 					<p><?php the_modified_date('j F Y') ?></p>
 				</li>
 				<li>
-                    <?php 
+                    <?php
                         global $current_user; get_currentuserinfo();
-                        if(!check_voto($current_user->ID, $post->ID) && is_user_logged_in()){ 
+                        if(!check_voto($current_user->ID, $post->ID) && is_user_logged_in()){
                     ?>
 					<!-- INTERFAZ USUARIO NO HA VOTADO -->
                     <form id="formulario-debate-realizar-voto" method="post" action="<?php bloginfo('url'); ?>/index.php">
 					<img src="<?php bloginfo('stylesheet_directory'); ?>/images/single_chart.png"/>
 					<?php
-                        $opciones = $wpdb->get_results("SELECT * FROM wp_votes WHERE post_id = $post->ID");                        
+                        $opciones = get_votes_from_post_id( $post->ID );
 						if ( $opciones ) {
 							echo '<h4>';
 							echo _e("Opciones", "Baobab");
@@ -72,7 +72,7 @@
 							echo '</ol>';
 						}
 					?>
-					   <!--  <div id="chart_div" style="width: auto; height: auto;"></div> -->  
+					   <!--  <div id="chart_div" style="width: auto; height: auto;"></div> -->
                     <input type="hidden" value="<?php echo $post->ID; ?>" name="post_id" />
                     <input id="submit_vote" type="submit" value="<?php _e("Votar", "Baobab");?>" class="button color_green" disabled="disabled" />
                     <?php wp_nonce_field('realizar_voto', '_debate_realizar_voto'); ?>
@@ -80,32 +80,32 @@
 			</ul>
                     </form>
                     <?php } else { ?>
-                    
-                    <!-- INTERFAZ USUARIO QUE YA VOTO -->             
+
+                    <!-- INTERFAZ USUARIO QUE YA VOTO -->
 					<img src="<?php bloginfo('stylesheet_directory'); ?>/images/single_chart.png"/>
 					<?php
-                        $opciones = $wpdb->get_results("SELECT * FROM wp_votes WHERE post_id = $post->ID");                        
+                        $opciones = get_votes_from_post_id( $post->ID );
 						if ( $opciones ) {
 							echo '<h4>Opciones:</h4>';
 							echo '<ol>';
 							foreach ( $opciones as $opcion ) {
-		                        $votos = get_votes($opcion->id);
+		                        $votos = get_votes( $opcion->id );
 								echo '<li style="background: none;"><!--['.$votos.']--> '.$opcion->vote_text .'</li>';
 							}
 							echo '</ol>';
 						}
-					
+
                     ?>
 				</li>
-			</ul>		
+			</ul>
      <div id="chart_div" style="width: auto; height: auto;"></div>
      	<?php } ?>
-			
+
 			<div class="column2">
 				<?php the_post_thumbnail('debate-thumbnail'); ?>
 				<p><?php the_content(); ?></p>
-			</div>			
-			<a class="share-tw" title="<?php _e("Comparte en Twitter", "Baobab"); ?>" target="_blank" href="http://twitter.com/intent/tweet?text=<?php the_title(); ?> <?php the_permalink();?>&t=<?php the_title(); ?>"</a> 
+			</div>
+			<a class="share-tw" title="<?php _e("Comparte en Twitter", "Baobab"); ?>" target="_blank" href="http://twitter.com/intent/tweet?text=<?php the_title(); ?> <?php the_permalink();?>&t=<?php the_title(); ?>"</a>
 			<a class="share-fb" title="<?php _e("Comparte en Facebook", "Baobab"); ?>" target="_blank" href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&t=<?php the_title(); ?>"></a>
 
 			<p class="edit">
