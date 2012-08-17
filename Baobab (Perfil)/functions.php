@@ -7,7 +7,7 @@
  * - Mercado
  * - Ideas
  **/
- 
+
 
 /** Varias líneas iniciales del functions son tomadas del tema Twenty Ten **/
 
@@ -148,7 +148,7 @@ add_image_size('mercado-thumbnail', 440, 0, true);
 
 
 /* Acortar textos (BAJADAS) de publicación, para mostrar en el Home y Página específica de cada tipo */
-function wp_limit_post($max_char, $more_link_text = '[...]',$noticiagp = false, $stripteaser = 0, $more_file = '') {
+function wp_limit_post($max_char, $more_link_text = '[&hellip;]',$noticiagp = false, $stripteaser = 0, $more_file = '') {
     $content = get_the_content($more_link_text, $stripteaser, $more_file);
     $content = apply_filters('the_content', $content);
     $content = str_replace(']]>', ']]&gt;', $content);
@@ -237,10 +237,10 @@ function estorninos_comment( $comment, $args, $depth ) {
 								/* translators: 1: date, 2: time */
 								sprintf( __( '%1$s at %2$s'), get_comment_date(), get_comment_time() )
 							)
-						);					
+						);
 					?>
 
-				</div><!-- .comment-author .vcard -->			
+				</div><!-- .comment-author .vcard -->
 				<?php if ( $comment->comment_approved == '0' ) : ?>
 					<em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.'); ?></em>
 					<br />
@@ -251,7 +251,7 @@ function estorninos_comment( $comment, $args, $depth ) {
 			<div class="reply">
 				<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Responder'), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
 			</div><!-- .reply -->
-			
+
 			</div><!-- comment-content -->
 	<?php
 			break;
@@ -415,39 +415,47 @@ function registrar_participante(){
         if(isset($_POST["post_id"])){
             // Preparar informacion
             global $current_user;       // ^
-            global $wpdb;               // Usuario y database
+            // global $wpdb;               // Usuario y database
             get_currentuserinfo();      // v
-            
+
             // Ver que el usuario no se haya unido anteriomente
             if(!is_user_participating($_POST["post_id"], $current_user->ID)){
                 $post_id = $_POST["post_id"];   // informacion del post
-                $wpdb->insert("wp_participantes", array(
-                        'post_id' => $post_id,
-                        'user_id' => $current_user->ID
-                    ));
+                // agregar id del participante como postmeta
+                add_post_meta( $_POST['post_id'], '_participant', $current_user->ID );
             }
         }
-        
         wp_redirect($_POST['_wp_http_referer']);
         exit;
     }
 }
 
+/**
+ * Determinar si un usuario "x" está participando en un proyecto
+ * @param int $post_id ID del proyecto
+ * @param int $user_id ID del usuario
+ * @return bool Verdadero o falso, dependiendo si el usuario está participando en el proyecto o no
+ * @internal optimización del método para determinar si está participando con in_array()
+ */
 function is_user_participating($post_id, $user_id){
-    $users = get_id_users_in_proyect($post_id);
-    foreach($users as $user){
-        if($user->user_id == $user_id){            
-            return true;
-        }
-    }
-    return false;
+	if ( ! is_numeric($post_id) || ! is_numeric($user_id) ) {
+		return null;
+	}
+    $users = get_id_users_in_proyect( $post_id );
+	return in_array($user_id, $users);
 }
 
+/**
+ * Obtener IDs de usuarios participantes en un proyecto
+ * @param int $post_id El ID del post para el proyectp
+ * @return array IDs de usuarios participantes en el proyecto
+ * @internal Cambio desde utilizar tabla custom a post_meta
+ */
 function get_id_users_in_proyect($post_id){
-    global $wpdb;
-    $query = "SELECT user_id FROM wp_participantes WHERE post_id = $post_id";
-    $result = $wpdb->get_results($query);
-    return $result;
+    if ( !is_numeric($post_id) ){
+    	return null;
+    }
+    return get_post_meta( $post_id, '_participant', false );
 }
 
 /* Idea */
@@ -633,17 +641,13 @@ function recibir_debate(){
 			}
 			if ( $_POST['debate']['opciones'] ) {
 				$opciones = array_filter( $_POST['debate']['opciones'] );
-       	         for($i = 0; $i < sizeof($opciones); $i++){
 				if($_POST['edit'] != 'true'){
-		             		$wpdb->insert("wp_votes", 
-       	                           	array(
-                                   	     'post_id' => $insert,
-	                                        'vote_text' => $opciones[$i]
-              	                      ));
-				}
-                	}                
+       	        	foreach($opciones as $opcion){
+			    		add_post_meta( $insert, '_option', $opcion );
+					}
+                }
 			update_post_meta($insert, 'Opciones', $opciones );
-			
+
 		  }
 			wp_redirect( get_permalink($insert) );
 			exit;
@@ -669,57 +673,76 @@ function realizar_voto(){
             global $current_user;       // ^
             global $wpdb;               // Usuario
             get_currentuserinfo();      // v
-            
-            $vote_id = $_POST["vote_id"];   // informacion del post
+
+            $vote_id = (int)trim($_POST["vote_id"]);   // informacion del post
             $user_id = $current_user->ID;   //login del usuario
-            $post_id = $_POST["post_id"];
-            
+            $post_id = (int)trim($_POST["post_id"]);
+
             // Ver si el usuario no voto anteriormente en este post
-            if(!check_voto($user_id, $post_id))
-            {
-                $wpdb->insert("wp_votes_user", 
-                            array(
-                                        'post_id' => $post_id,
-                                        'vote_id' => $vote_id,
-                                        'user_id' => $user_id
-                                ));
+            if( ! check_voto($user_id, $post_id) ){
+            	// los votos se insertarán como post_meta, de modo '_vote_'. $vote_id
+            	// de ese modo podremos buscar por clave la cantidad de votos
+            	add_post_meta( $post_id, '_vote_'. $vote_id, $user_id );
             }
-            
+
             wp_redirect($_POST['_wp_http_referer']);
             exit;
         }
     }
 }
+
+/**
+ * Comprobar si un usuario ha votado en un post
+ * @param int $user_id ID del usuario
+ * @param int $post_id ID del post
+ * @return bool Verdadero si el usuario ya votó en el post
+ * @internal Cambio método para consultar por voto como post_meta
+ * @author Felipe Lavin <felipe@yukei.net>
+ */
 function check_voto($user_id, $post_id){
-    if(!is_numeric($user_id) || !is_numeric($post_id)){
-	return null;
+    if( ! is_numeric($user_id) || ! is_numeric($post_id) ){
+		return null;
     }
     global $wpdb;
-    $query = "SELECT * FROM wp_votes_user WHERE user_id = $user_id and post_id = $post_id";
-    $result = $wpdb->get_row($query, ARRAY_N);
-    if(is_null($result))
-        return false;
-    else
-        return true;
+    $query = $wpdb->prepare("SELECT COUNT(meta_id) FROM $wpdb->postmeta WHERE post_id = %d AND meta_value = %d", $post_id, $user_id);
+    $result = $wpdb->get_var( $query );
+    // la query devuelve un valor numérico, por lo que lo transformamos a booleano para retornar verdadero (1) o falso (0) correctamente
+    return (bool)$result;
 }
 
+/**
+ * Return vote options for a given post_id
+ * @param int $post_id The ID for the post we want to get the options
+ * @return array The vote options for the given post
+ * @internal Reemplacé la query a la tabla personalizada por una llamada a la tabla $wpdb->postmeta, mapeando
+ * los nombres de las columnas de la tabla original a los que tienen en $wpdb->postmeta. De ese modo no habría
+ * que modificar mucho código para obtener la misma funcionalidad
+ * @author Felipe Lavín <felipe@yukei.net>
+ */
 function get_votes_from_post_id($post_id){
-	if(!is_numeric($post_id)){
-	 return null;
+	if( ! is_numeric($post_id) ) {
+		return null;
 	}
-
 	global $wpdb;
-	return $wpdb->get_results("SELECT * FROM wp_votes WHERE post_id = $post_id");
+	return $wpdb->get_results( $wpdb->prepare("SELECT meta_id AS id, post_id, meta_value AS vote_text FROM $wpdb->postmeta WHERE post_id = %d AND meta_key = %s", $post_id, '_option') );
 }
 
-function get_votes($vote_id){
-    if(!is_numeric($vote_id)){
-	return null;
+/**
+ * Get the number of votes for a given option
+ * @param int $vote_id The meta_id for the option we want to get the votes
+ * @return int Number of votes for a given option
+ * @internal Cambio en la query para obtener el número de votos desde $wpdb->postmeta
+ * @author Felipe Lavin <felipe@yukei.net>
+ */
+function get_votes( $vote_id ){
+    if( ! is_numeric( $vote_id ) ){
+		return null;
     }
+    // cast as int to be sure we're safe
+    $vote_id = (int)$vote_id;
     global $wpdb;
-    $query = "SELECT * FROM wp_votes_user WHERE vote_id = $vote_id";
-    $result = $wpdb->get_results($query);
-    return sizeof($result);
+    $query = "SELECT COUNT(meta_id) FROM $wpdb->postmeta WHERE meta_key = '_vote_$vote_id";
+    return (int)$wpdb->get_var( $query );
 }
 
 /* Evento */
@@ -779,7 +802,7 @@ function recibir_evento(){
 				update_post_meta( $insert, 'Lugar', $_POST['evento']['lugar'] );
 				update_post_meta( $insert, 'Geo', $_POST['evento']['pos'] );
 			}
-	
+
 			wp_redirect( get_permalink($insert) );
 			exit;
 		}
@@ -795,7 +818,7 @@ function filtrar_fecha_evento( $data, $postarr ){
 
 function get_permalink_by_postname( $postname ){
 	global $wpdb;
-	$id = $wpdb->get_var( $wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE post_name =%s", $postname) );
+	$id = $wpdb->get_var( $wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE post_name = %s ", $postname) );
 	return get_permalink( $id );
 }
 
@@ -935,7 +958,7 @@ function listar_proyectos(){
 			echo '<h5><a href="'. get_permalink() .'">'. titulo_corto ('...', 50) .'</a></h5>';
 			$i++;
 			endwhile;
-			
+
 		echo '</ul>';
 	endif;
 	$post = $the_post;
@@ -1033,23 +1056,23 @@ if ( !function_exists('fb_addgravatar') ) {
 
 /* Baobab Multilenguaje */
 load_theme_textdomain( 'Baobab', TEMPLATEPATH.'/languages' );
- 
+
 $locale = get_locale();
 $locale_file = TEMPLATEPATH."/languages/$locale.php";
 if ( is_readable($locale_file) )
 	require_once($locale_file);
-	
-/* Aparecen los Customs Posts en el resultado de las Categorías */
-function namespace_add_custom_types( $query ) { 
-  if( is_category() && empty( $query->query_vars['suppress_filters'] ) ) { 
-    $query->set( 'post_type', array( 'post', 'proyecto', 'idea', 'debate', 'evento', 'mercado')); 
-          return $query; 
-        } 
-} 
-add_filter( 'pre_get_posts', 'namespace_add_custom_types' );  
 
-/* Conceptos a Traducir: Noticias, Proyectos, Debates, Eventos, Ideas y Mercado*/	
-function traducir_conceptos() { ?> 
+/* Aparecen los Customs Posts en el resultado de las Categorías */
+function namespace_add_custom_types( $query ) {
+  if( is_category() && empty( $query->query_vars['suppress_filters'] ) ) {
+    $query->set( 'post_type', array( 'post', 'proyecto', 'idea', 'debate', 'evento', 'mercado'));
+          return $query;
+        }
+}
+add_filter( 'pre_get_posts', 'namespace_add_custom_types' );
+
+/* Conceptos a Traducir: Noticias, Proyectos, Debates, Eventos, Ideas y Mercado*/
+function traducir_conceptos() { ?>
 <?php _e("Inicia Sesión", "Baobab"); ?>
 <?php _e("Registro", "Baobab"); ?>
 <?php _e("Noticias", "Baobab"); ?>
@@ -1065,7 +1088,14 @@ function traducir_conceptos() { ?>
 <?php _e("Enviar Mercado", "Baobab"); ?>
 <?php }
 
-/* Página: Página de Edición de Perfil -> editar-perfil.php */
+/* Página: Página de Edición de Perfil -> editar-perfil.php
+ *
+ * @todo En lugar de utilizar esta detección, pueden usar el hook "after_switch_theme", que se activa
+ * después de activar un nuevo tema
+ * @internal la creación de las páginas podría ser un paso opcional, que se anuncia en la administración,
+ * y las funciones que hace cada plantilla podrían estar incluídas en un shortcode (pensando en la meta que sería
+ * publicar el tema en el repositorio de WordPress
+ */
 if (isset($_GET['activated']) && is_admin())
 	$pages = array(
 	'post_name' =>  __("Editar Perfil", "Baobab"),
@@ -1172,7 +1202,7 @@ if (isset($_GET['activated']) && is_admin())
 		$template = strtolower("archive-debate.php");
 		$update = update_post_meta($id, '_wp_page_template', $template);
 	}
-	
+
 /* Página: Archivo Eventos -> archive-evento.php */
 if (isset($_GET['activated']) && is_admin())
 	$pages = array(
@@ -1244,7 +1274,7 @@ if (isset($_GET['activated']) && is_admin())
 		$template = strtolower("plantilla-enviar-proyecto.php");
 		$update = update_post_meta($id, '_wp_page_template', $template);
 	}
-	
+
 /* Página: Enviar Debate -> plantilla-enviar-debate.php */
 if (isset($_GET['activated']) && is_admin())
 	$pages = array(
@@ -1317,36 +1347,40 @@ if (isset($_GET['activated']) && is_admin())
 		$update = update_post_meta($id, '_wp_page_template', $template);
 	}
 
-/* Creación de Tablas */
-if (isset($_GET['activated']) && is_admin())
+/* Creación de Tablas
+/*
+ * @internal Entiendo que esta es la parte más polémica del asunto. La idea en general es reemplazar
+ * la necesidad de estas tablas por datos que estén en la tabla $wpdb->postmeta
+ */
+// if (isset($_GET['activated']) && is_admin())
 
-	$sql_t_participantes = "CREATE TABLE IF NOT EXISTS wp_participantes (
-		  id bigint(20) NOT NULL auto_increment,
-		  post_id int(11) NOT NULL,
-		  user_id int(11) NOT NULL,
-		  PRIMARY KEY  (id)
-		) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0;";
+// 	$sql_t_participantes = "CREATE TABLE IF NOT EXISTS wp_participantes (
+// 		  id bigint(20) NOT NULL auto_increment,
+// 		  post_id int(11) NOT NULL,
+// 		  user_id int(11) NOT NULL,
+// 		  PRIMARY KEY  (id)
+// 		) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0;";
 
 
-	$sql_t_votes ="CREATE TABLE IF NOT EXISTS wp_votes (
-		  id bigint(20) NOT NULL auto_increment,
-		  post_id int(11) NOT NULL,
-		  vote_text varchar(255) NOT NULL,
-		  PRIMARY KEY  (id)
-		) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0;";
+// 	$sql_t_votes ="CREATE TABLE IF NOT EXISTS wp_votes (
+// 		  id bigint(20) NOT NULL auto_increment,
+// 		  post_id int(11) NOT NULL,
+// 		  vote_text varchar(255) NOT NULL,
+// 		  PRIMARY KEY  (id)
+// 		) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0;";
 
-	$sql_t_votes_user = " CREATE TABLE IF NOT EXISTS wp_votes_user (
-		  id bigint(20) NOT NULL auto_increment,
-		  post_id int(11) NOT NULL,
-		  vote_id int(11) NOT NULL,
-		  user_id int(11) NOT NULL,
-		  PRIMARY KEY  (id)
-		) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0;";
+// 	$sql_t_votes_user = " CREATE TABLE IF NOT EXISTS wp_votes_user (
+// 		  id bigint(20) NOT NULL auto_increment,
+// 		  post_id int(11) NOT NULL,
+// 		  vote_id int(11) NOT NULL,
+// 		  user_id int(11) NOT NULL,
+// 		  PRIMARY KEY  (id)
+// 		) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0;";
 
-	mysql_query($sql_t_participantes);
-	mysql_query($sql_t_votes);
-	mysql_query($sql_t_votes_user);
-	
+// 	mysql_query($sql_t_participantes);
+// 	mysql_query($sql_t_votes);
+// 	mysql_query($sql_t_votes_user);
+
 
 /* Campos de Twitter y Facebook en el Perfil del Usuario */
 
@@ -1358,7 +1392,7 @@ function show_extra_profile_fields( $user ) { ?>
 
 	<h3><?php _e("Información Extra","Baobab"); ?></h3>
 	<table class="form-table">
-	
+
 		<tr>
 			<th><label for="twitter"><?php _e("Twitter","Baobab"); ?></label></th>
 
@@ -1367,8 +1401,8 @@ function show_extra_profile_fields( $user ) { ?>
 				<span class="description"><?php _e("Ingresa tu cuenta de Twitter", "Baobab"); ?></span>
 			</td>
 		</tr>
-		
-		
+
+
 		<tr>
 			<th><label for="twitter"><?php _e("Facebook","Baobab"); ?></label></th>
 
@@ -1378,7 +1412,7 @@ function show_extra_profile_fields( $user ) { ?>
 			</td>
 		</tr>
 
-		
+
 	</table>
 <?php }
 
