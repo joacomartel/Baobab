@@ -1,0 +1,52 @@
+footer{
+    a,  a h1 {-moz-transition: all 0.3s ease 0s;color: #BFBFBF;}
+    a:hover, a:hover h1 {color:white;}
+    background: @blackTransparent;
+    min-height: 120px;
+    clear: both;
+    padding:@cuerpo/2 0 @cuerpo;
+    .pagewrap{
+        p{
+        color:@white;
+        font-size: @cuerpo*0.9;
+        line-height: 140%;
+        float:left;
+        width:40%;
+        margin-right:5%;
+        }
+        div{
+            &.menu-footer-container{
+                ul{
+                    &.menu{
+			            color:white;
+			            font-size: @cuerpo*0.9;
+			            line-height: 140%;
+			            float:none;
+			            margin:0;
+                        li{
+                            display:block;
+                            width:auto;
+                            margin:0;
+                            padding:0;
+                            line-height:140%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+@media screen and(max-width:720px){
+	
+	footer{
+		.pagewrap{
+			p, div.menu-footer-container ul.menu{
+				width:100%;
+				float:none;
+				display:block;
+				}
+			}
+		}
+	
+}

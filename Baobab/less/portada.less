@@ -1,0 +1,185 @@
+/*Portada*/
+
+.portada{
+    width: 96%;
+	height: auto;
+	padding: 10px 10px 0;
+	margin: 10px 0;
+    height:320px;
+    .top-news, .about{
+    	display: block;
+    	margin-bottom: 10px;
+    	height: 280px;
+	    }
+    .about{
+        /*.col6;*/width:170px;
+	    /*height: 308px;*/ height:auto;
+	    float: right;
+	    /*margin-left: 20px;*/margin:0;
+        .box-shadow;
+	    /*background: @white;*/background: rgba(255,255,255,0.3);
+        .border-radius(0 0 5px 5px);
+        position:absolute;
+        top:@headerHeight;
+        z-index:2;
+	    /*padding: 50px 18px 20px;*/padding:10px ;
+        /* Prueba */ /* img, p{display:none;}*/
+        &.nothing{display:none;}
+        img{
+            display:inline;
+            /*width: auto;
+	        height:65%;
+	        margin: -20px auto 0;
+	        .opacity(70);*/
+            }
+        /*p{
+            margin: 10px;
+	        font-size: 13px;
+	        line-height: 120%;
+	        color: @gray;
+	        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
+	        padding: 0;
+	        height: 28%;
+	        text-align: center;
+	        }*/
+        .btn.blue{display:block; width:50%; margin:0 auto;}
+        .clearfix;
+        }/*about*/
+    .top-news{
+	    width: 100% - @6cols;
+        min-height:330px;
+        overflow:hidden;/*prueba*/
+        position:absolute;
+        top:@headerHeight;
+        right:0;
+        width:100%;
+        text-align:center;
+        #font > .serif;
+        .grayscale(100%);
+        .transition(1s);
+        &.noImage{
+            filter:none;
+            .transition(1s);
+            &:hover{
+                background: rgba(0,0,0,0.2);
+                }
+            }
+        &:hover {  
+        .grayscale(0);
+        filter: none;
+        }  
+        a{
+            &:hover {.top-filter{background: rgba(0,0,0,0.55);}}
+            .top-filter{
+                background: rgba(0,0,0,0.6);
+	            height: 400px;
+	            padding:@padding;
+                }
+            h3{
+                width:60%;
+                margin: 0 auto;
+                font-size: 4em;
+	            color: @white;
+	            line-height: 120%;
+	            padding: 0 20px;
+	            letter-spacing: -1px;
+                }
+            p{ 
+                font-size:1.2em;
+	            padding: 10px 0;
+                margin: 0 auto;
+        	    width: 50%;
+                line-height:160%;
+                color:lighten(@lightGray, 20%);
+                &.top-dato{
+                    border-top: 1px dotted rgba(255,255,255,0.4);
+                    font-size: 1em;
+	                font-style: italic;
+                    }
+                &.movil-dato{
+                    display:none;
+                    }
+                span{font-weight:bold;}
+                img{margin-right:4px;}
+                }
+	        }
+        }
+    }
+
+/* para 1024 o menos */
+@media screen and (max-width:1366px){
+    .portada .top-news{
+        a{
+            h3{
+                font-size:2.6em;
+                }
+            }
+        }
+    }
+
+@media screen and (max-width:1024px){
+    .portada .top-news{
+        /*height:auto;*/
+        a{
+            .top-filter{
+                padding-top: @cuerpo;
+                }
+            h3{
+                }
+            }
+        }
+    }
+
+/* para 720px o menos */
+@media screen and (max-width:720px){
+
+    .portada{
+        width:100%;
+        height:auto;
+        padding:0;
+        .about, .top-news{
+            position:inherit;
+            display:block;
+            float:none;
+            /*width:100%;*/
+            margin:0 0 10px;
+            padding:0;
+            .border-radius(5px);
+            }
+        .about{
+            margin:0 auto;
+            background-color:none; .box-shadow(0 0 0 white);
+            img{margin:0 auto;} 
+            p{height:auto; margin-bottom:10px;}
+            .btn.blue{width:auto; margin: 0 auto @cuerpo/2; font-size:@cuerpo*1; padding:@cuerpo/2;}
+            }
+        .top-news{
+            /*height:auto;*/
+            width:100%;
+            min-height:0px;
+            &.noImage{}
+            a{
+                .top-filter{/*padding:1em;*/ /*height:auto;*/}
+                h3{font-size:1.5em; width:100%; padding:0; padding-bottom:@cuerpo;}
+                p{
+                    display:none;
+                    font-family:@special;
+                    font-size:1em;
+                    &.movil-dato{
+                        width:100%;
+                        display:inherit;
+                        span{
+                        width:100%;
+                        display:block;
+                        font-weight:normal;
+                        line-height:@baseline;
+                        padding-bottom:@cuerpo/2;
+                        margin-bottom:@cuerpo/4;
+                        border-bottom:1px dotted @borde;}
+                        }
+                    }
+                &:hover{p{color:@white;}}
+                }
+            }
+        }
+    }

@@ -1,0 +1,193 @@
+/*Perfil para author.php*/
+
+.block .avatar{
+    width: 90%;
+	height: auto;
+	margin: 0 auto;
+	float: left;
+	padding: 3%;
+	border: 1px solid rgba(0,0,0,0.1);
+	margin: 0 1.5% 10px;
+	}
+
+.profile-info{
+    background-color: lighten(@backgroundColor, 20%);
+	display: block;
+	min-height: 210px;
+    min-height: 285px;
+    padding-bottom: @cuerpo*1.2;
+    border: 1px solid darken(@backgroundColor, 5%);
+    div{display:inline-block;}
+    border-collapse: collapse;
+    .profile-avatar{
+        display: block;
+    	max-width: 210px;
+    	height: auto;
+    	float: left;
+        .clearfix;
+        border-right: 1px solid darken(@backgroundColor, 5%);
+    	/*.box-shadow(0 1px 3px rgba(0, 0, 0, 0.1));*/
+    	background: lighten(@backgroundColor, 20%);
+    	/*padding-right: 10px;*/
+    	margin-right: 10px;
+        img{
+            width: 94%;
+        	height: auto;
+        	margin: 3%;
+        	float: left;
+            }
+        form{
+            height:auto;
+            float:left;
+            /*background:@color;*/
+            /*position:absolute;*/
+            /*overflow:hidden;*/
+            padding:1em;
+            input{
+                display:block;
+                &.btn{ margin-top:10px;}
+                }
+            }
+    	}
+    h2{
+        width:100%;
+        font-size: x-large;
+        line-height:120%;
+    	padding: 20px 0 20px;
+    	border-bottom: 1px dotted rgba(0,0,0,0.05);
+        border-bottom: 1px dotted darken(@backgroundColor, 5%);
+    	margin-bottom: 10px;
+    	color: #666;
+        span{
+            font-size: large;
+        	color: LightGrey;
+        	display: block;
+        	/*margin-top: 10px;*/
+            a{
+                font-size: small;
+            	padding: 3px 10px;
+            	-webkit-border-radius: 4px;
+            	-moz-border-radius: 4px;
+            	border-radius: 4px;
+            	background: #CCC;
+            	text-shadow: none;
+            	-webkit-transition: all 0.3s ease 0s;
+            	-moz-transition: all 0.3s ease 0s;
+            	-o-transition: all 0.3s ease 0s;
+            	transition: all 0.3s ease 0s;
+            	vertical-align: text-top;
+            	color: white;
+                &:hover{
+                    color: white;
+                	background: #127ec1;
+                	}
+            	}
+        	}/*span*/
+        }/*h2*/
+        p{
+            width: 95%;
+        	line-height: 150%;
+    	    font: lighter italic 14px 'Georgia',serif;
+            margin-bottom:@cuerpo;
+            }
+        a.share-tw, a.share-fb, a.share-url{
+            margin-top: 0;
+            float: none; 
+            }
+	}/*profile-info*/
+
+h4 {
+    &.profile-title{
+        margin: @margin/2 0;
+	    display: block;
+        color:@grayLight;
+	    }
+    }
+
+/**/
+@media screen and (max-width: 720px){
+    .profile-info .profile-avatar form{display:none;}
+    }
+
+/* author para 480px o menos */
+@media screen and (max-width: 480px) {
+
+.profile-info, .profile-title{
+	width: auto;
+	display: block;
+	padding: 0 20px;
+	margin-top: 20px;
+    div{
+        width:100%;
+        .clearfix;
+        padding-bottom:@cuerpo;
+        &.profile-avatar{width:@3cols; position:absolute;}
+        h2{margin-left:@3cols+@cuerpo; width:auto;}
+        img{
+            width:10%;
+            }
+        }
+	}
+.profile-avatar{
+	width: 20%;
+	display: inline-block;
+	}
+
+.profile-info h1 span a{
+	display: table;
+	margin-top: 4px;
+	}
+}
+/*end Responsive*/
+
+/*Editar Perfil*/
+.pagewrap{
+    .profile-edit{
+        background-color:@white;
+        padding:@padding;
+        margin:@-margin;
+        form{
+            input, textarea{
+                font-family: Helvetica,Arial,sans-serif;
+                border: 1px solid @borde;
+                .border-radius(2px);
+                .box-shadow(0 1px 3px @grayLighter inset);
+                padding: 8px;
+                width: 97%; 
+                margin-bottom: @cuerpo;
+                font-size:@cuerpo*0.9;
+                font-weight:lighter;
+                &.btn{
+                    width:auto;
+                    .box-shadow(0 0 0 white);
+                    }
+                }
+            span{
+                display:inline-block;
+                img{
+                    vertical-align:top;
+                    }
+                input{
+                    width:auto;
+                    }
+                }
+            h4{
+                }
+            p{
+                font-size:@small;
+                margin-bottom:@cuerpo;
+                }
+            }
+        }
+    }
+
+/*Responsive*/
+
+@media screen and (max-width:700px){
+    
+    .pagewrap{
+        .profile-edit{
+            width:auto;
+            }
+        }
+    }

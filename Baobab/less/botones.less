@@ -1,0 +1,66 @@
+/*btn.less Buttons for Baobab Theme*/
+a.btn{color: @white; text-decoration:none;}
+
+.btn{
+    color: @white;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    padding: .5em 2em .55em;
+    font-size: @small;
+    text-shadow: @shadow;
+    .box-shadow;
+    .border-radius;
+    .transition(@transition);
+    .gradientBar(@grayLight, darken(@grayLight, 20%));
+     &:hover{
+        .gradientBar(darken(@grayLight, 5%), darken(@grayLight, 25%));
+        }
+    &:active{
+        position:relative; top:1px;
+        }
+    &.blue{
+        border: 1px solid @blue;
+        .gradientBar(@blue, @blueDark);
+            &:hover{
+            .gradientBar(darken(@blue, 8%), darken(@blueDark,8%));
+            }
+        }
+    &.green{
+        border: 1px solid @green;
+        .gradientBar(@green, @greenDark);
+        padding:0.5em 1em;
+        font-size:12px;
+        vertical-align:middle;
+        color: @white;
+            &:hover{
+            .gradientBar(darken(@green, 5%), darken(@greenDark,5%));
+            }
+        }
+    &.red{
+        border: 1px solid @red;
+        .gradientBar(@red, @redDark);
+            &:hover{
+            .gradientBar(darken(@red, 8%), darken(@redDark,8%));
+            }
+        }
+    &.add{
+        font-size: .8em; //10px
+        background: @green;
+        padding: .4em .65em .3em;
+        .box-shadow(0 0 0 white);
+            &:hover{
+            background:@greenDark;
+            }
+        }
+    &.edit{
+        background: #CCC;
+        font-size: .9em;
+        padding: 3px 10px;
+        text-shadow:none;
+        box-shadow:none;
+         &:hover{
+            background:@color;
+            }
+        }
+    }

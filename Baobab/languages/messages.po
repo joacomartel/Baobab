@@ -1,0 +1,806 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+
+#. Text in echo
+#: comments.php:48
+msgid "¿Quieres decir algo?"
+msgstr ""
+
+#. Text in echo
+#: header.php:44
+msgid "Publicaciones</a>"
+msgstr ""
+
+#. Text in echo
+#: header.php:44
+msgid "Editar</a></li>"
+msgstr ""
+
+#. Text in echo
+#: header.php:44
+msgid "Salir</a>"
+msgstr ""
+
+#. Text in echo
+#: header.php:63
+msgid "Regístrate</a>"
+msgstr ""
+
+#. Text in echo
+#: header.php:63
+msgid " o "
+msgstr ""
+
+#. Text in echo
+#: index.php:12
+msgid "Últimas Publicaciones"
+msgstr ""
+
+#. Text in echo
+#: index.php:68
+msgid "Estado: "
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-proyecto.php:27
+msgid "Crear Proyecto"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-proyecto.php:42
+msgid "Título"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-proyecto.php:45
+msgid "Descripción"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-proyecto.php:50
+msgid "Etapas"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-proyecto.php:60
+msgid "Agregar Etapa"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-proyecto.php:62
+msgid "Estado"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-proyecto.php:64
+msgid "En Curso"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-proyecto.php:65
+msgid "Finalizado"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-proyecto.php:68
+msgid "Imagen"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-proyecto.php:71
+msgid "Categorías"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-proyecto.php:74
+msgid "Enviar"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-proyecto.php:85
+msgid "Para publicar un Proyecto debes"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-proyecto.php:85
+msgid " Iniciar Sesión</a>"
+msgstr ""
+
+#. Text in echo
+#: single-proyecto.php:12
+msgid "Publicado por "
+msgstr ""
+
+#. Text in echo
+#: single-proyecto.php:24
+msgid "<h4>Etapas</h4>"
+msgstr ""
+
+#. Text in echo
+#: single-proyecto.php:37
+msgid "Equipo"
+msgstr ""
+
+#. Text in echo
+#: single-proyecto.php:66
+msgid "Para participar debe "
+msgstr ""
+
+#. Text in echo
+#: archive-proyecto.php:39
+msgid "<p>En un <span>Proyecto</span> puedes vincular ideas, listar tareas y generar conversaciones. ¡Únete!</p>"
+msgstr ""
+
+#. Text in echo
+#: archive-proyecto.php:40
+msgid "Inicia Sesión</a>"
+msgstr ""
+
+#. Text in echo
+#: archive-proyecto.php:53
+msgid " se encuentra "
+msgstr ""
+
+#. Text in echo
+#: archive-proyecto.php:53
+msgid "El proyecto "
+msgstr ""
+
+#. Text in echo
+#: single-proyecto.php:57
+msgid "Únete"
+msgstr ""
+
+#. Text in echo
+#: single-proyecto.php:80
+msgid "Comparte en Twitter"
+msgstr ""
+
+#. Text in echo
+#: single-proyecto.php:81
+msgid "Comparte en Facebook"
+msgstr ""
+
+#. Text in echo
+#: single-proyecto.php:83
+msgid "Editar Publicación"
+msgstr ""
+
+#. Text in echo
+#: single-proyecto.php:91
+msgid "Crear Proyecto</a>"
+msgstr ""
+
+#. Text in echo
+#: single-proyecto.php:93
+msgid "Últimos Proyectos"
+msgstr ""
+
+#. Text in echo
+#: archive.php:39
+msgid "<p>Una <span>Noticia</span> es una publicación de carácter oficial del equipo administrador de tu comunidad.</p>"
+msgstr ""
+
+#. Text in echo
+#: archive.php:32
+msgid "Noticias Recientes"
+msgstr ""
+
+#. Text in echo
+#: archive.php:44
+msgid "Crear Noticia</a>"
+msgstr ""
+
+#. Text in echo
+#: archive.php:88
+msgid " Comentarios"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-idea.php:27
+msgid "Crear idea"
+msgstr ""
+
+#. Text in echo
+#: archive-idea.php:30
+msgid "Ideas Recientes"
+msgstr ""
+
+#. Text in echo
+#: archive-idea.php:38
+msgid "<p>Una <span>Idea</span> puede convertirse en un gran proyecto. ¡Compártela!</p>"
+msgstr ""
+
+#. Text in echo
+#: archive-idea.php:39
+msgid "Crear Idea</a>"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-idea.php:62
+msgid "Para publicar una Idea debes"
+msgstr ""
+
+#. Text in echo
+#: archive-debate.php:74
+msgid " concluye el "
+msgstr ""
+
+#. Text in echo
+#: archive-debate.php:61
+msgid "<p>Un <span>Debate</span> permite generar discusiones por medio de votaciones y validar tu postura al comentar.</p>"
+msgstr ""
+
+#. Text in echo
+#: archive-debate.php:62
+msgid "Crear Debate</a>"
+msgstr ""
+
+#. Text in echo
+#: archive-debate.php:54
+msgid "Debates Recientes"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-debate.php:58
+msgid "Agregar Opción"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-debate.php:60
+msgid "Cierre del Debate"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-debate.php:29
+msgid "Crear Debate"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-debate.php:48
+msgid "Opciones"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-debate.php:95
+msgid "Para crear un Debate debes"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-debate.php:41
+msgid "Pregunta"
+msgstr ""
+
+#. Text in echo
+#: single-debate.php:77
+msgid "Votar"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-evento.php:126
+msgid "Crear Evento"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-evento.php:158
+msgid "Fecha"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-evento.php:142
+msgid "Lugar"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-evento.php:188
+msgid "Para publicar un Evento debes"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-evento.php:151
+msgid "Ubicar"
+msgstr ""
+
+#. Text in echo
+#: archive-evento.php:52
+msgid " está agendado para el "
+msgstr ""
+
+#. Text in echo
+#: archive-evento.php:37
+msgid "<p>En un <span>Evento</span> puedes hacer público un acontecimiento y hacer que la comunidad sea parte de él.</p>"
+msgstr ""
+
+#. Text in echo
+#: archive-evento.php:38
+msgid "Crear Evento</a>"
+msgstr ""
+
+#. Text in echo
+#: archive-evento.php:30
+msgid "Eventos Recientes"
+msgstr ""
+
+#. Text in echo
+#: single-evento.php:26
+msgid "Asistentes"
+msgstr ""
+
+#. Text in echo
+#: single-evento.php:47
+msgid "Asistiré"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-mercado.php:27
+msgid "Crear Mercado"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-mercado.php:54
+msgid "Compro"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-mercado.php:51
+msgid "Condición"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-mercado.php:75
+msgid "Para publicar un Producto debes"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-mercado.php:55
+msgid "Transacción Finalizada"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-mercado.php:48
+msgid "Valor"
+msgstr ""
+
+#. Text in echo
+#: plantilla-enviar-mercado.php:53
+msgid "Vendo"
+msgstr ""
+
+#. Text in echo
+#: archive-mercado.php:38
+msgid "<p>En <span>Mercado</span> puedes poner en venta o comprar artículos y colocarte en contacto con quien lo ofrece.</p>"
+msgstr ""
+
+#. Text in echo
+#: archive-mercado.php:39
+msgid "Crear Mercado</a>"
+msgstr ""
+
+#. Text in echo
+#: archive-mercado.php:31
+msgid "Mercado Actual"
+msgstr ""
+
+#. Text in echo
+#: archive-mercado.php:51
+msgid "Su condición es "
+msgstr ""
+
+#. Text in echo
+#: archive-mercado.php:51
+msgid "y su valor es"
+msgstr ""
+
+#. Text in echo
+#: single-mercado.php:28
+msgid "Contacto"
+msgstr ""
+
+#. Text in echo
+#: single-mercado.php:29
+msgid "Enviar Mensaje"
+msgstr ""
+
+#. Text in echo
+#: searchform.php:2
+msgid "Buscar"
+msgstr ""
+
+#. Text in echo
+#: search.php:21
+msgid "Búsqueda"
+msgstr ""
+
+#. Text in echo
+#: category.php:21
+msgid "Publicaciones en"
+msgstr ""
+
+#. Text in echo
+#: author.php:31
+msgid "Publicaciones de"
+msgstr ""
+
+#. Text in echo
+#: author.php:19
+msgid "Editar Perfil"
+msgstr ""
+
+#. Text in echo
+#: functions.php:1058
+msgid "Debates"
+msgstr ""
+
+#. Text in echo
+#: functions.php:1063
+msgid "Enviar Debate"
+msgstr ""
+
+#. Text in echo
+#: functions.php:1064
+msgid "Enviar Evento"
+msgstr ""
+
+#. Text in echo
+#: functions.php:1065
+msgid "Enviar Idea"
+msgstr ""
+
+#. Text in echo
+#: functions.php:1066
+msgid "Enviar Mercado"
+msgstr ""
+
+#. Text in echo
+#: functions.php:1062
+msgid "Enviar Proyecto"
+msgstr ""
+
+#. Text in echo
+#: functions.php:1059
+msgid "Eventos"
+msgstr ""
+
+#. Text in echo
+#: functions.php:1060
+msgid "Ideas"
+msgstr ""
+
+#. Text in echo
+#: functions.php:1061
+msgid "Mercado"
+msgstr ""
+
+#. Text in echo
+#: functions.php:1056
+msgid "Noticias"
+msgstr ""
+
+#. Text in echo
+#: functions.php:1057
+msgid "Proyectos"
+msgstr ""
+
+#. Text in echo
+#: functions.php:1303
+msgid "Información Extra"
+msgstr ""
+
+#. Text in echo
+#: functions.php:1321
+msgid "Ingresa tu cuenta de Facebook"
+msgstr ""
+
+#. Text in echo
+#: functions.php:1311
+msgid "Ingresa tu cuenta de Twitter"
+msgstr ""
+
+#. Text in echo
+#: registro.php:61
+msgid "? Por favor "
+msgstr ""
+
+#. Text in echo
+#: registro.php:201
+msgid "Regístrate"
+msgstr ""
+
+#. Text in echo
+#: registro.php:201
+msgid "Añadir Usuario"
+msgstr ""
+
+#. Text in echo
+#: registro.php:61
+msgid "Cierra Sesión"
+msgstr ""
+
+#. Text in echo
+#: registro.php:61
+msgid "¿No eres "
+msgstr ""
+
+#. Text in echo
+#: registro.php:100
+msgid "Apellidos"
+msgstr ""
+
+#. Text in echo
+#: registro.php:115
+msgid "Biografía"
+msgstr ""
+
+#. Text in echo
+#: registro.php:106
+msgid "Correo Electrónico"
+msgstr ""
+
+#. Text in echo
+#: registro.php:92
+msgid "Datos del Usuario"
+msgstr ""
+
+#. Text in function
+#: registro.php:1
+msgid "Debes introducir un correo electrónico válido"
+msgstr ""
+
+#. Text in function
+#: registro.php:1
+msgid "Es necesario un nombre de usuario"
+msgstr ""
+
+#. Text in echo
+#: registro.php:123
+msgid "Facebook"
+msgstr ""
+
+#. Text in echo
+#: registro.php:104
+msgid "Información de Contacto"
+msgstr ""
+
+#. Text in function
+#: registro.php:1
+msgid "Lo sentimos, ese correo electrónico ya está siendo utilizado"
+msgstr ""
+
+#. Text in function
+#: registro.php:1
+msgid "Lo sentimos, ese nombre de usuario ya existe"
+msgstr ""
+
+#. Text in echo
+#: registro.php:84
+msgid "Los usuarios NO pueden registrarse, pero puedes tú sí crearlos desde aquí"
+msgstr ""
+
+#. Text in echo
+#: registro.php:81
+msgid "Los usuarios pueden registrarse o puedes crearlos manualmente aquí"
+msgstr ""
+
+#. Text in echo
+#: registro.php:97
+msgid "Nombre"
+msgstr ""
+
+#. Text in echo
+#: registro.php:118
+msgid "Redes Sociales"
+msgstr ""
+
+#. Text in echo
+#: registro.php:109
+msgid "Sitio web"
+msgstr ""
+
+#. Text in echo
+#: registro.php:113
+msgid "Sobre ti"
+msgstr ""
+
+#. Text in echo
+#: registro.php:120
+msgid "Twitter"
+msgstr ""
+
+#. Text in echo
+#: registro.php:94
+msgid "Usuario (obligatorio)"
+msgstr ""
+
+#. Text in function
+#: registro.php:64
+msgid "<br/>Desde ahora, puedes acceder al sitio con tu correo electrónico y la contraseña que has escogido"
+msgstr ""
+
+#. Text in function
+#: registro.php:64
+msgid "Tu cuenta ha sido creada correctamente"
+msgstr ""
+
+#. Text in function
+#: registro.php:64
+msgid "Gracias por registrarte"
+msgstr ""
+
+#. Text in echo
+#: registro.php:121
+msgid "@usuario"
+msgstr ""
+
+#. Text in echo
+#: registro.php:124
+msgid "www.facebook.com/tu-usuario"
+msgstr ""
+
+#. Text in echo
+#: functions.php:1053
+msgid "Registro"
+msgstr ""
+
+#. Text in echo
+#: functions.php:1053
+msgid "Inicia Sesión"
+msgstr ""
+
+#. Text in echo
+#: login.php:40
+msgid "Contraseña"
+msgstr ""
+
+#. Text in echo
+#: login.php:45
+msgid "Recordar mis datos"
+msgstr ""
+
+#. Text in echo
+#: login.php:37
+msgid "Usuario"
+msgstr ""
+
+#. Text in echo
+#: login.php:50
+msgid "¿Olvidaste tu contraseña?"
+msgstr ""
+
+#. Text in echo
+#: comments.php:73
+msgid "Para poder ser parte de la conversación, debes"
+msgstr ""
+
+#. Text in echo
+#: comments.php:73
+msgid "Iniciar Sesión</a>"
+msgstr ""
+
+#. Text in echo
+#: single-mercado.php:30
+msgid "Para ponerte en contacto debes"
+msgstr ""
+
+#. Text in echo
+#: single-debate.php:86
+msgid "<h4>Opciones:</h4>"
+msgstr ""
+
+#. Text in function
+#: editar-perfil.php:1
+msgid "Las contraseñas que colocaste no coinciden."
+msgstr ""
+
+#. Text in function
+#: registro.php:1
+msgid "Debes introducir tu Nombre"
+msgstr ""
+
+#. Text in function
+#: registro.php:1
+msgid "Debes introducir tus Apellidos"
+msgstr ""
+
+#. Text in echo
+#: registro.php:89
+msgid "¿Aún no tienes una cuenta? Regístrate"
+msgstr ""
+
+#. Text in echo
+#: editar-perfil.php:85
+msgid "Actualizar Perfil"
+msgstr ""
+
+#. Text in echo
+#: editar-perfil.php:82
+msgid "Nueva Contraseña"
+msgstr ""
+
+#. Text in echo
+#: editar-perfil.php:83
+msgid "Repetir Contraseña"
+msgstr ""
+
+#. Text in echo
+#: editar-perfil.php:81
+msgid "Si quieres cambiar tu contraseña, escribe en los siguientes campos. De lo contrario, déjalo en blanco"
+msgstr ""
+
+#. Text in function
+#: functions.php:217
+msgid "Editar"
+msgstr ""
+
+#. Text in echo
+#: functions.php:217
+msgid "Pingback:"
+msgstr ""
+
+#. Text in function
+#: functions.php:236
+msgid "%1$s at %2$s"
+msgstr ""
+
+#. Text in echo
+#: functions.php:250
+msgid "Tu comentario está esperando ser aprobado."
+msgstr ""
+
+#. Text in function
+#: functions.php:257
+msgid "Responder"
+msgstr ""
+
+#. Text in echo
+#: comments.php:8
+msgid "Este post está protegido con contraseña. Introduce la tuya para ver los comentarios."
+msgstr ""
+
+#. Text in echo
+#: comments.php:38
+msgid "Los comentarios están cerrados."
+msgstr ""
+
+#. Text in echo
+#: comments.php:63
+msgid "Enviar Comentario"
+msgstr ""
+
+#. Text in function
+#: author.php:1
+msgid "Error al Subir el Archivo: %s"
+msgstr ""
+
+#. Text in echo
+#: 404.php:10
+msgid "Pero podemos mejorar, lo sabemos."
+msgstr ""
+
+#. Text in echo
+#: 404.php:13
+msgid "Si quieres "
+msgstr ""
+
+#. Text in echo
+#: 404.php:9
+msgid "Ups, hicimos algo mal...muy mal."
+msgstr ""
+
+#. Text in echo
+#: 404.php:13
+msgid "ve al inicio"
+msgstr ""
+
+#. Text in echo
+#: 404.php:14
+msgid "ó encuentra lo que buscas acá"
+msgstr ""
+

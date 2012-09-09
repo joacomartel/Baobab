@@ -1,0 +1,117 @@
+/* Comentarios */
+@commentWidth: 60%;
+@commentPadding: 2%;
+@commentFull: 100%;
+
+/*notificaciones por email*/
+p.subscribe-to-comments{
+    margin-bottom:16px;
+	}
+
+/*Mensaje logueo para poder comentar*/
+#respond{
+	margin-bottom: @margin;
+    h3{margin-bottom: @margin/2;}
+    a#cancel-comment-reply-link{color:@red; font-size:@small; &:hover{text-decoration:underline;}}
+    #commentform{
+        width: @commentWidth - @commentPadding;
+        .text-input {
+            #font > .sans-serif(lighter,@small,135%);
+            background: @white;
+            width: 100%;
+            border: 1px solid @grayLight;
+        	.border-radius(2px);
+        	height: 100px;
+        	.box-shadow(0 1px 3px rgba(102, 102, 102, 0.2) inset);
+        	color: lighten(@grayDark, 15%);
+        	padding: @commentPadding;
+            margin-bottom: @margin/2;
+            }
+        }
+	}
+
+ol{
+    &.commentlist{
+        list-style:none; 
+    	text-indent:0;
+    	margin:0 0 0em;
+    	padding:0;
+    	text-indent:0;
+        width: @commentWidth;
+        font-size:@small;
+        li{
+            font-weight:lighter;
+            margin:0 0 @cuerpo;
+            border: 1px solid darken(@backgroundColor, 10%);
+            &.comment{padding:1em;}
+            .comment-content {margin-left: 75px; min-height:44px;}
+            p{color: lighten(@grayDark, 10%); margin: @cuerpo*0.8 0; line-height:@font-size*1.3;}
+            div{
+                &.vcard{
+                    cite.fn a.url {text-decoration: none;}
+                    img.avatar { 
+                        float:left;
+                        max-width: 56px;
+                        max-height: 56px;
+                        .border-radius(5px);
+                        .box-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
+                        padding: 5px;
+                        margin-right: 12px;
+                        background:@white;
+                        }
+                    }
+                &.comment-meta{
+                    a{
+                        color: #8c8c8c; text-decoration: none;
+                        &:hover{text-decoration: underline;}
+                        }
+                    }
+                &.reply{
+                    text-align: left;
+                    a {
+                        font-size: .8em; //10px
+                        background: @greenDark;
+                        padding: .4em .65em .3em;
+                        color: @white;
+                        .border-radius(3px);
+                        &:hover{
+                            background:@black;
+                            }
+                        
+                        }
+                    }
+                }
+                ul{
+                    list-style:square; 
+                    margin: 0 0 1em 2em;
+                    &.children{
+                         list-style: none;
+                         margin: 1em 0 0;
+                         text-indent:0;
+                         li{
+                             min-height: 65px;
+                            &.depth-2 { background: darken(@backgroundColor, 3%); border: 1px solid darken(@backgroundColor, 10%); width: auto; }
+                            &.depth-3 { background: darken(@backgroundColor, 6%); border: 1px solid darken(@backgroundColor, 15%); margin:0 0 10px 0; }
+                            &.depth-4 { background: darken(@backgroundColor, 9%); border: 1px solid darken(@backgroundColor, 20%); margin:0 0 10px 0; }
+                            &.depth-5 { background: darken(@backgroundColor, 12%); border: 1px solid darken(@backgroundColor, 25%); margin:0 0 10px 0; }
+                            &.depth-6 { background: darken(@backgroundColor, 15%); border: 1px solid darken(@backgroundColor, 30%); margin:0 0 10px 0; }
+                            }
+                        }
+                    }
+            }
+        }
+    }
+
+div.allowed-tags { width: 90%!important; font-style: italic; background: #F9F9F9; padding: 7px; font-size: 0.75em; }
+div.navigation { clear: both; overflow: hidden; margin-bottom: 15px; }
+p#comment-notes { padding-right: 20px; }
+div.navigation a { color: #5190CE; }
+div.navigation a:hover { color: #464646; }
+div.navigation .alignleft { float: left; width: 50%; }
+div.navigation .alignright { float: right; text-align: right; width: 50%;}
+div.cancel-comment-reply { margin: 10px 0 10px 0; text-transform: capitalize;}
+
+@media screen and (max-width:700px){
+    #respond #commentform{width:@commentFull - @commentPadding*2 ;}
+    ol{&.commentlist{width:auto;}}
+    }

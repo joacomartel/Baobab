@@ -1,0 +1,108 @@
+/*
+
+GRILLA
+
+*/
+
+
+.pag{
+	width: @anchoTotal;
+	margin: 0 auto;
+	background-color: darken(@white, 3%);
+	padding: @interColumna;
+	.box-shadow(fade(@black, 10%) 0 0 12px);
+}
+
+.fila{
+	margin-left: -@interColumna;
+	margin-right: -@interColumna;
+	.clearfix;
+}
+
+
+/* */
+[class*="col"] {
+      float: left;
+      margin-left: @interColumna;
+      &.ver{
+	      color: fade(@black, 30%);
+	      background-color: fade(@black, 5%);
+	      .border-radius(3px);
+	      	p{
+		      	font-size: 11px;
+		      	font-weight: bold;
+				padding: @interColumna/2;
+			}
+      }
+}
+
+
+.a1, .col1{width: @1cols;}
+.a2, .col2{width: @2cols;}
+.a3, .col3{width: @3cols;}
+.a4, .col4{width: @4cols;}
+.a5, .col5{width: @5cols;}
+.a6, .col6{width: @6cols;}
+.a7, .col7{width: @7cols;}
+.a8, .col8{width: @8cols;}
+.a9, .col9{width: @9cols;}
+.a10, .col10{width: @10cols;}
+.a11, .col11{width: @11cols;}
+.a12, .col12{width: @12cols;}
+.a13, .col13{width: @13cols;}
+.a14, .col14{width: @14cols;}
+.a15, .col15{width: @15cols;}
+.a16, .col16{width: @16cols;}
+.a17, .col17{width: @17cols;}
+.a18, .col18{width: @18cols;}
+.a19, .col19{width: @19cols;}
+.a20, .col20{width: @20cols;}
+.a21, .col21{width: @21cols;}
+.a22, .col22{width: @22cols;}
+.a23, .col23{width: @23cols;}
+.a24, .col24{width: @24cols;}
+
+
+[class*="bloque"] {
+      float: left;
+      margin: 0;
+      &.ver{
+      	color: fade(@black, 30%);
+		background-color: fade(@black, 5%);
+		.box-shadow(inset 0 0 1px fade(@black, 25%));
+			p{
+				font-size: 11px;
+				font-weight: bold;
+				padding: @interColumna/2;
+			}
+      }
+}
+
+ .bloque1{width: @bloque;}
+ .bloque2{width: @bloque * 2;}
+ .bloque3{width: @bloque * 3;}
+ .bloque4{width: @bloque * 4;}
+ .bloque5{width: @bloque * 5;}
+ .bloque6{width: @bloque * 6;}
+ .bloque7{width: @bloque * 7;}
+ .bloque8{width: @bloque * 8;}
+ .bloque9{width: @bloque * 9;}
+.bloque10{width: @bloque * 10;}
+.bloque11{width: @bloque * 11;}
+.bloque12{width: @bloque * 12;}
+.bloque13{width: @bloque * 13;}
+.bloque14{width: @bloque * 14;}
+.bloque15{width: @bloque * 15;}
+.bloque16{width: @bloque * 16;}
+.bloque17{width: @bloque * 17;}
+.bloque18{width: @bloque * 18;}
+.bloque19{width: @bloque * 19;}
+.bloque20{width: @bloque * 20;}
+.bloque21{width: @bloque * 21;}
+.bloque22{width: @bloque * 22;}
+.bloque23{width: @bloque * 23;}
+.bloque24{width: @bloque * 24;}
+
+// Anchos porcerntuales
+
+.w1 {width:1%;} .w2 {width:2%;} .w3 {width:3%;} .w4 {width:4%;} .w5 {width:5%;} .w6 {width:6%;} .w7 {width:7%;} .w8 {width:8%;} .w9 {width:9%;} .w10 {width:10%;} .w11 {width:11%;} .w12 {width:12%;} .w13 {width:13%;} .w14 {width:14%;} .w15 {width:15%;} .w16 {width:16%;} .w17 {width:17%;} .w18 {width:18%;} .w19 {width:19%;} .w20 {width:20%;} .w21 {width:21%;} .w22 {width:22%;} .w23 {width:23%;} .w24 {width:24%;} .w25 {width:25%;} .w26 {width:26%;} .w27 {width:27%;} .w28 {width:28%;} .w29 {width:29%;} .w30 {width:30%;} .w31 {width:31%;} .w32 {width:32%;} .w33 {width:33%;} .w34 {width:34%;} .w35 {width:35%;} .w36 {width:36%;} .w37 {width:37%;} .w38 {width:38%;} .w39 {width:39%;} .w40 {width:40%;} .w41 {width:41%;} .w42 {width:42%;} .w43 {width:43%;} .w44 {width:44%;} .w45 {width:45%;} .w46 {width:46%;} .w47 {width:47%;} .w48 {width:48%;} .w49 {width:49%;} .w50 {width:50%;} .w51 {width:51%;} .w52 {width:52%;} .w53 {width:53%;} .w54 {width:54%;} .w55 {width:55%;} .w56 {width:56%;} .w57 {width:57%;} .w58 {width:58%;} .w59 {width:59%;} .w60 {width:60%;} .w61 {width:61%;} .w62 {width:62%;} .w63 {width:63%;} .w64 {width:64%;} .w65 {width:65%;} .w66 {width:66%;} .w67 {width:67%;} .w68 {width:68%;} .w69 {width:69%;} .w70 {width:70%;} .w71 {width:71%;} .w72 {width:72%;} .w73 {width:73%;} .w74 {width:74%;} .w75 {width:75%;} .w76 {width:76%;} .w77 {width:77%;} .w78 {width:78%;} .w79 {width:79%;} .w80 {width:80%;} .w81 {width:81%;} .w82 {width:82%;} .w83 {width:83%;} .w84 {width:84%;} .w85 {width:85%;} .w86 {width:86%;} .w87 {width:87%;} .w88 {width:88%;} .w89 {width:89%;} .w90 {width:90%;} .w91 {width:91%;} .w92 {width:92%;} .w93 {width:93%;} .w94 {width:94%;} .w95 {width:95%;} .w96 {width:96%;} .w97 {width:97%;} .w98 {width:98%;} .w99 {width:99%;} .w100 {width:100%;}

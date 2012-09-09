@@ -1,0 +1,96 @@
+/* Variables.less for Baobab Theme */
+
+//Main Color
+@color:             #127EC1; //main color #127EC1
+@colorHover:        darken(@color, 15%);
+@hoverColor:        @colorHover;
+@backgroundColor:   @grayLighter;
+
+// Grays
+@black:             rgba(0, 0, 0, 1);
+@blackTransparent:  rgba(0,0,0,0.8);
+@grayDark:          lighten(@black, 25%); //was #666 before
+@darkGray:          @grayDark;
+@gray:              lighten(@black, 50%);
+@grayLight:         lighten(@black, 75%); //was #B2B2B2 before
+@lightGray:         @grayLight;
+@grayLighter:       lighten(@black, 98%);
+@lighterGray:       @grayLighter;
+@white:             #fff;
+
+//Colors
+@green:             #8EC236; //#609D1E
+@greenDark:         #609d1e;
+@greenDarkness:     #00845F;
+@darkGreen:         @greenDark;
+
+//Otros colores
+@borde:    			fade(@gray, 30%);
+@blue:              #34A5EC;
+@blueDark:          darken(@blue, 15%);
+@blueDarkness:      #3474BA;
+@red:				#D01B00;
+@redDark:			darken(@red, 15%);
+@yellow:            #E4AC04;
+@orange:            rgba(224, 117, 0, 1);
+@pink:              rgba(231, 127, 204, .95);
+@purple:            rgba(120, 80, 200, .95);
+@rosado:            #E666BD;
+
+//Fuentes
+@special: 'Open Sans', sans-serif;
+
+// Baseline grid
+@basefontsize:    	@font-size;
+@basefont:          @basefontsize * 1em;
+@em:				@basefont;
+@baseline:          @em * 1.81;
+@small:             @font-size * 0.88;
+
+// Proporciones tipográficas
+@font-size:    		14px;					// tamaño base en pixeles
+@cuerpo:			@font-size;
+@em: 				@font-size * 1em;		// atajo para salida en ems, ej. "12/@em"
+@interlinea:        @em * 1.81;
+
+// Grilla
+@columnas:    		24;
+@columna: 			2 * @cuerpo;
+@interColumna: 		1 * @cuerpo;
+@anchoTotal:		(@columnas * (@columna + @interColumna) - @interColumna);
+
+// Anchos de columna
+
+ @1cols: ( 1 * (@columna + @interColumna) - @interColumna); @1col: @1cols;
+ @2cols: ( 2 * (@columna + @interColumna) - @interColumna);
+ @3cols: ( 3 * (@columna + @interColumna) - @interColumna);
+ @4cols: ( 4 * (@columna + @interColumna) - @interColumna);
+ @5cols: ( 5 * (@columna + @interColumna) - @interColumna);
+ @6cols: ( 6 * (@columna + @interColumna) - @interColumna);
+ @7cols: ( 7 * (@columna + @interColumna) - @interColumna);
+ @8cols: ( 8 * (@columna + @interColumna) - @interColumna);
+ @9cols: ( 9 * (@columna + @interColumna) - @interColumna);
+@10cols: (10 * (@columna + @interColumna) - @interColumna);
+@11cols: (11 * (@columna + @interColumna) - @interColumna);
+@12cols: (12 * (@columna + @interColumna) - @interColumna);
+@13cols: (13 * (@columna + @interColumna) - @interColumna);
+@14cols: (14 * (@columna + @interColumna) - @interColumna);
+@15cols: (15 * (@columna + @interColumna) - @interColumna);
+@16cols: (16 * (@columna + @interColumna) - @interColumna);
+@17cols: (17 * (@columna + @interColumna) - @interColumna);
+@18cols: (18 * (@columna + @interColumna) - @interColumna);
+@19cols: (19 * (@columna + @interColumna) - @interColumna);
+@20cols: (20 * (@columna + @interColumna) - @interColumna);
+@21cols: (21 * (@columna + @interColumna) - @interColumna);
+@22cols: (22 * (@columna + @interColumna) - @interColumna);
+@23cols: (23 * (@columna + @interColumna) - @interColumna);
+@24cols: (24 * (@columna + @interColumna) - @interColumna);
+
+// Ancho del bloque
+@bloque:	(@anchoTotal + 2 * @interColumna) / @columnas;
+
+//Shadow
+@shadow: 0 1px 1px rgba(0,0,0, .1);
+
+//Animation
+@transition: all 0.3s ease 0s; 

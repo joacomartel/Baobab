@@ -1,0 +1,79 @@
+Baobab -  Baobab - A completely Responsive theme, where you can create Projects, Debates, News, Events, Ideas, Market
+Copyright (C) 2012 by Joaquin Martel & Jaime Perez Moena.
+[http://proyectos.ead.pucv.cl/baobab/version-2/]
+
+Licensed under GNU General Public License 2.0
+[http://www.gnu.org/licenses/old-licenses/gpl-2.0.html]
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+===
+
+Custom Posts, Votes in debates, Attend in Events and Join in Projects by Felipe Lavin Zumaeta
+[http://felipe.lv/]
+
+---
+
+Pin in the map Events by Rodrigo Moya
+[http://www.demasiadaoreja.info/]
+
+---
+
+Based on the jQuery Masonry, by David DeSandro
+[http://masonry.desandro.com/]
+Licensed under the MIT license.
+
+---
+
+Yahoo! User Interface CSS by Yahoo!
+[http://developer.yahoo.com/yui]
+Code licensed under the BSD License:
+
+---
+
+jQuery Templates Plugin 1.0.0pre
+
+[http://github.com/jquery/jquery-tmpl]
+
+Copyright Software Freedom Conservancy, Inc.
+
+Dual licensed under the MIT or GPL Version 2 licenses.
+
+
+---
+
+jQuery Mousewheel by Brandon Aaron
+[http://brandonaaron.net]
+Licensed under the MIT License.
+
+
+---
+
+jScrollPane by Kelvin Luck
+
+[http://jscrollpane.kelvinluck.com/]
+
+Dual licensed under the MIT and GPL licenses.
+
+
+---
+
+jQuery Easing v1.3 by George McGinley Smith
+[http://gsgd.co.uk/sandbox/jquery/easing/]
+
+Open source under the BSD License. 
+
+---
+
+LESS - Leaner CSS v1.3.0 by Alexis Sellier
+[http://lesscss.org]
+Licensed under the Apache 2.0 License.
+

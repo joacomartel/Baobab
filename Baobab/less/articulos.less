@@ -1,0 +1,218 @@
+/*Artículos*/
+@margin: @cuerpo*1.8;
+@-margin: -26px 0 20px;
+@titleSize: @cuerpo*1.8;
+@paddingTop: @baseline*1.3;
+@padding: @paddingTop @baseline @baseline;
+
+article{
+    background-color:@white;
+	padding-bottom: 20px;
+	margin-top: 16px;
+	.box-shadow (1px 1px 1px rgba(0,0,0, 0.1);
+	display: inline-block;
+	margin: @-margin;
+    &#publicacion, &#permanente{
+        width: 60%;
+        height: auto;
+        .wrap{padding:@padding;}
+        .title{
+            margin-top:@margin;
+            display:table;
+            margin-bottom:10px;
+            p{
+                font-size:@cuerpo*0.9;
+                a{}
+                }
+            h3{
+                font-size: @titleSize;
+                line-height: 120%;
+                margin:@cuerpo/4 0;
+                }
+            }
+        table.w100{
+            margin:1em 0;
+            border-collapse: collapse;
+	        /*border-left: 1px solid @borde;
+	        border-right: 1px solid @borde;*/
+            tr{
+                /*border-bottom: 1px solid @borde;*/
+				&:first-of-type{
+                    border-top: 1px dotted @borde;
+                    }
+                }
+            th, td{
+                padding: @interColumna /2;
+                text-align: left;
+                }
+            th{
+                font-weight: normal;
+                text-transform:uppercase;
+                color:@grayLight;
+                vertical-align: bottom;
+                img{
+                    max-height:20px;
+                    vertical-align:bottom;
+                    margin-right:@cuerpo/4;
+                    }
+                }
+            td{
+                vertical-align:top;
+                color: fade(@black, 60%);
+                a.btn{display:block; width:50%; margin:0;}
+                p{font-size:@small; line-height:normal; margin:6px 0; display:block;}
+                ul{li{form{
+                    input{&.btn{ display:block; width:50%;}}}}
+                    ol{li{line-height:120%;}}
+                    }
+                ol{li{line-height:120%;}}
+                }
+            }        
+        .column2{
+            width:100%;
+            margin-left:0;
+            .content-columns(2, @baseline);
+            &.fix{.content-columns(1, 0);}
+            display: inline-block;
+            img{.w100; margin: 0 1em 1em 0; height:auto; .clearfix; float:left; }
+            p{font-size:@small; font-weight:lighter; line-height:140%; margin-bottom:@small;}
+            strong{font-weight: bold;}
+            em{font-style: italic;}
+            em strong{font-style: italic; font-weight: bold;}
+            ul, ol{margin-bottom: @cuerpo; li{font-size:@small; line-height:120%;}}
+            ul{li{list-style: disc inside;}}
+            ol{li{list-style: decimal inside;}}
+        }
+        a{
+            &.share-tw{}
+            &.share-fb{}
+            }
+        p.edit{float:right; text-align:right; font-weight:normal; .w100; font-size:@small;}
+       }
+    }
+
+aside{
+    &#archive-list{
+        .clearfix;
+        width:39%;
+        /*width:@6cols;*/
+        float: right;
+        background: darken(@backgroundColor, 2%);
+        #gradient > .horizontal(@backgroundColor, darken(@backgroundColor, 2%));
+        /*margin: @margin;*/
+        margin: @-margin;
+        .wrap{padding:@padding; float:right; padding-top:0;}
+        padding-top:@paddingTop + @margin;
+        .box-shadow2(/*inset 0px 0px 4px -7px rgba(0,0,0,0.5), */inset -5px 0px 4px -7px rgba(0,0,0,0.5), 0px 1px 1px rgba(255,255,255,0.9));
+        .btn{
+            /*float: left;*/
+            margin-bottom:@margin/2;
+            }
+        h2{
+            font-size: @titleSize*0.84;
+            display:block;
+            }
+        ul, ol{
+            li{
+                color: #676767;
+                border-top: 1px dotted rgba(0,0,0,0.1);
+                padding:6px 0;
+                font-size: @small;
+                display:block;
+                h5{
+                    display:block;
+                    width:100%;
+                    }
+                }
+            }
+        }
+    }
+
+#avatar{
+    a{
+        img{
+            max-width: 56px;
+            max-height: 56px;
+            .border-radius(5px);
+            .box-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
+            float:right;
+            padding: 5px;
+            background:@white;
+            margin-top:@margin;
+            }
+        }
+    }
+
+table.mceLayout {width: 100%;}
+tbody {width: auto;}
+
+/* Share */
+
+a[class*="share"]{
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+	float: left;
+	margin: 20px 6px 0 0;
+    }
+    
+a.share-fb {
+	background: url("images/fb.png") no-repeat right transparent;
+    &:hover {background: url("images/fb2.png") no-repeat right transparent;}
+    }
+
+a.share-tw {
+	background: url("images/twitter.png") no-repeat right transparent;
+    &:hover {background: url("images/twitter2.png") no-repeat right transparent;}
+    }
+
+a.share-url {
+	background: url("images/link.png") no-repeat right transparent;
+    &:hover {background: url("images/link2.png") no-repeat right transparent;}
+    }
+
+@media screen and (max-width:1280px){
+    article#publicacion .column2, article#permanente .column2{
+        .content-columns(1, 0);
+        img{
+            width:50%;
+            }
+        }
+    }
+
+@media screen and (max-width:720px){
+    article#publicacion, article#permanente{
+        width: 100%;
+	    float: none;
+	    }
+    aside#archive-list{
+        width: auto;
+        float: none;
+        margin:@-margin;
+        padding-top:@paddingTop;
+        .wrap{float:none;}
+        .btn{/*float:right;*/
+            width:50%;
+            display:block;
+            margin: 0 auto @cuerpo;
+            float:none;
+            }
+        h2{line-height:@baseline*1.5;}
+        .clearfix;
+        }
+    }
+
+@media screen and (max-width:480px){
+    article#publicacion .column2 img{
+        width:100%;
+        }
+    article#publicacion table.w100 th img{
+        display: none;
+        }
+    #avatar a img{
+        display:none;
+        }
+    a[class*="share"]{
+        margin-top:10px;
+        }
+    }
